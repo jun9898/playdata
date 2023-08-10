@@ -37,7 +37,7 @@ public class PrimitiveTypeValueTest {
 		 
 		 // 실수형 리터럴 float, double
 		 // 실수형 리터럴의 기본 타입을 double
-
+		 
 		 double d = 10.5;
 		 System.out.println(d);
 
