@@ -1,7 +1,7 @@
 package statement;
 
 
-public class MultiIfExam {
+public class MultiIfExamStarWhile {
 	public static void main(String[] args) {
 		
 		int a = 0;
@@ -9,7 +9,7 @@ public class MultiIfExam {
 
 		while (true) {
 			if (flag == true) {
-				for (int i = 1; i < 10; i++) {
+				for (int i = 2; i < 10; i++) {
 					for (int j = 0; j < i; j++) {
 						System.out.print("*");
 					}

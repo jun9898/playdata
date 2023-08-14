@@ -33,7 +33,8 @@ public class ForLogicTest2 {
 		for (int num : listTest) {
 			answer += num;
 		}
-		System.out.println(result + "의 배수의 합 = " + answer);
-	}
 
+		System.out.println(result + "의 배수의 합 = " + answer);
+
+	}
 }
