@@ -22,5 +22,21 @@ public class MyMethodTest {
 		obj.display("★", 4);
 		obj.display("§", 15);
 		obj.display("▨", 24);
+		
+		int resdata = obj.add(100, 200);
+		System.out.println("메소드 호출 결과 => " + resdata);
+		if (resdata > 200) {
+			System.out.println("완료");
+		} else {
+			System.out.println("다시 작업");
+		}
+		
+		// 메소드로 호출한 값을 변수에 초기화 시켜주지 않아도 사용이 가능하다
+		if (obj.add(10, 20) > 200) {
+			System.out.println("완료");
+		} else {
+			System.out.println("다시 작업");
+		}
+		
 	}
 }

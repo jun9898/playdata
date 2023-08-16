@@ -2,6 +2,8 @@ package test;
 
 import java.util.Scanner;
 
+import oop.basic.MyMethodDemo;
+
 public class Calc {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -17,17 +19,11 @@ public class Calc {
 		System.out.print("숫자를 입력하세요.");
 		int x = sc.nextInt();
 		int y = sc.nextInt();
-		int result = 0;
 		
-		if (i == 1) {
-			result = x+y;
-		} else if (i == 2) {
-			result = x*y;
-		} else if (i == 3) {
-			result = x-y;
-		} else if (i == 4) {
-			result = x/y;
-		} System.out.println("계산결과 => " + result);
+		MyMethodDemo calcTest = new MyMethodDemo();
+		int result = calcTest.calc(i, x, y);
+
+		System.out.println("계산결과 => " + result);
 
 
 

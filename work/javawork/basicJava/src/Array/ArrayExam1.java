@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 public class ArrayExam1 {
 	public static void main(String[] args) {

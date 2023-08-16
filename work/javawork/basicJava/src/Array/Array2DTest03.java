@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 // 가변배열 - 다차원 배열은 배열의 요소가 참조하는 배열의 사이즈를 다르게 생성할 수 있다.
 public class Array2DTest03 {

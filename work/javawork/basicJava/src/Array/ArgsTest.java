@@ -1,4 +1,4 @@
- package Array;
+ package array;
 
 /*
  * 명령행 매개변수

@@ -27,5 +27,9 @@ public class MyMethod {
 		}
 		System.out.println();
 	}
+	public int add(int a, int b) {
+		int result = a+b;
+		return result;
+	}
 
 }

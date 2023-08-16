@@ -9,26 +9,8 @@ public class Person {
 	// default - 같은 패키지의 클래스에서만 접근 가능
 	// private - 선언된 클래스에서만 사용 가능
 
-	private String name;
-	private String addr;
-	private int age;
+	public String name;
+	public String addr;
+	public int age;
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
 }
