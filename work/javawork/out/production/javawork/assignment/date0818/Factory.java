@@ -1,9 +1,9 @@
 package assignment.date0818;
 
 public abstract class Factory {
-	int openHour;
-	int closeHour;
-	String name;
+	private int openHour;
+	private int closeHour;
+	private String name;
 
 	public Factory(String name, int openHour, int closeHour) {
 		super();
