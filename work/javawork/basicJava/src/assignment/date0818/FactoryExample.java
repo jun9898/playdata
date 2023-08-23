@@ -1,7 +1,6 @@
 package assignment.date0818;
 
 public class FactoryExample {
-
 	public static void main(String[] args) {
 		// ===== 1st Car Factory Information
 		// Factory Name: CarABC
@@ -48,6 +47,4 @@ public class FactoryExample {
 		// TODO
 		System.out.println("--------------------------------------------------------------");
 	}
-
-
 }
