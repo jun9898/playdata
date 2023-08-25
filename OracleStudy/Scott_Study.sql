@@ -149,6 +149,8 @@ FROM EMP e
 WHERE (DEPTNO, SAL) IN (SELECT DEPTNO , MIN(SAL)  
 			  			FROM EMP
 			  			GROUP BY DEPTNO)  
+			  			
+
 
 
 

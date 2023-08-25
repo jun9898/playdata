@@ -75,4 +75,14 @@ AND d.DEPARTMENT_NAME = 'Sales'
 AND e.SALARY < (SELECT AVG( SALARY )
 				FROM EMPLOYEES
 				WHERE DEPARTMENT_ID = 100)
+				
+--3. De Haan 사원의 관리자 사원번호, 이름(last_name), 
+--입사일 및 급여를 표시하는 SQL문을 작성하십시오.alias를 포함하여 실행결과와 동일하게 출력되어야 합니다.
+--[출처] 단일행서브쿼리(hr계정)|작성자 heaves1
+SELECT 
+e.EMPLOYEE_ID  , e.LAST_NAME , e.HIRE_DATE , e.SALARY 
+FROM EMPLOYEES e 
+WHERE e.EMPLOYEE_ID IN (SELECT e2.MANAGER_ID 
+						FROM EMPLOYEES e2 
+						WHERE e2.LAST_NAME = 'De Haan')
 
