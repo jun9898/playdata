@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num1 = parseInt(prompt("성적을 입력하세요"));
+			alert(num1)
+			if(num1<0 || num1>100){
+				alert("점수 잘못입력")
+			} else {
+				switch (num1/10) {
+				case 9:
+					document.write("<h1>수</h1>")
+					break;
+				case 8:
+					document.write("<h1>우</h1>")
+					break;
+				case 7:
+					document.write("<h1>미</h1>")
+					break;
+				case 6:
+					document.write("<h1>양</h1>")
+					break;
+				default:
+					document.write("<h1>가</h1>")
+					document.write("<img src='/clientweb/images/product/dog.jpg'>")
+				}
+			}
+		</script>
+	</body>
+</html>

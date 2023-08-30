@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<table style="border: solid 1px;">
+		<script type="text/javascript">
+			for (i = 1; i <= 9; i++){
+				document.write("<tr style='border: solid 1px;'>")
+				for (j = 1; j <= 9; j++){
+					if (i == j){
+						document.write("<td style='border: solid 1px; background-color: red'>" +i+"*"+j+"="+(i*j)+"</td>" )
+					} else {
+						document.write("<td style='border: solid 1px;'>" +i+"*"+j+"="+(i*j)+"</td>" )
+					}
+				}
+				document.write("</tr>")
+			}
+	
+	
+	
+		</script>
+	</table>
+	</body>
+</html>
