@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Date 객체를 생성하고 사용
+			var today = new Date();
+			document.write(today+"<br/>")
+			document.write(today.toString()+"<br/>")
+			
+			var str = today.getFullYear() + "년 ";
+			str = str + (today.getMonth()+1) + "월 ";
+			str = str + today.getDate() + "일 ";
+			str = str + today.getHours() + "시 ";
+			str = str + today.getMinutes() + "분 ";
+			str = str + today.getSeconds() + "초 ";
+			document.write(str+"<br/>")
+			
+			// 요일번호
+			// 0 - 일요일, 6 - 토요일
+			var day = today.getDay();
+			document.write("<h2>요일번호 : " + day + "</h2>")
+			
+			
+			var newday = new Date();
+			newday.setMonth(7); // 8월 셋팅
+			newday.setDate(1); // 1일셋팅
+			document.write(newday+"<br/>")
+			document.bgColor = "yellow";
+		</script>
+		
+	</body>
+</html>
