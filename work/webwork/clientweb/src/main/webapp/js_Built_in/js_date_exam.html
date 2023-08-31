@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			tr{
+			 border: solid 1px black;
+			}	
+			td{
+			 border: solid 1px black;
+			}	
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 오늘 날짜를 기준으로 년도, 월, 일을 반환해줄 객체
+			var forGet = new Date();
+
+			// 오늘 년도, 월, 일
+			var year = forGet.getFullYear();
+			var month = forGet.getMonth();
+			var day = forGet.getDate();
+			
+			// 말일 구하기
+			var last = new Date(year, month+1, 0);
+			// 말일 요일
+			console.log(last.getDate());
+			
+			console.log("=========================");
+
+			// 1일 구하기
+			var first = new Date(year, month, 1);
+			// 1일 요일
+			console.log(first.getDate());
+			
+			document.write("<table>")
+			document.write("<th>")
+			document.write("<td> 일 </td>")
+			document.write("<td> 월 </td>")
+			document.write("<td> 화 </td>")
+			document.write("<td> 수 </td>")
+			document.write("<td> 목 </td>")
+			document.write("<td> 금 </td>")
+			document.write("<td> 토 </td>")
+			document.write("</th>")
+
+			let count = 1 - first.getDay();
+			for (let i = 0; i < Math.ceil((last.getDate()+first.getDay())/7.0); i++){
+				document.write("<tr>")
+				for (let j = 0; j < 7; j++){
+					if (count > 0 && count <= last.getDate()){
+						document.write("<td>" + count + "</td>");
+						count += 1;
+					} else if (count <= 0){
+						count += 1;
+						document.write("<td></td>");
+					}
+				}
+				document.write("</tr>")
+			}
+			document.write("</table>")
+		
+		</script>
+		
+	</body>
+</html>
