@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 모두체크/해제 라는 체크박스를 클릭하면 food 라는 이름으로 정의된 모든 체크박스가 선택이 되고
+	// 선택된 상태에서 클릭하면 해제될 수 있도록 작업
+	function allcheck() {
+		// 1. allchk의 상태값을 가져오기
+		var allchk = document.getElementById("allchk");
+		var allchkVal = allchk.checked;
+
+		// 2. class 속성이 myfood인 객체들을 모두 가져오기
+		var checkfood = document.getElementsByClassName("myfood")
+		// 3. allchk의 checked 값을 2번에서 가져온 체크박스들에 설정
+		for(let i = 0; i<checkfood.length; i++){
+			checkfood[i].checked = allchkVal;
+		}
+	}
+
+	function newallcheck() {
+		var allchk2 = document.querySelector("#allchk")
+		var foodArr = document.querySelectorAll(".myfood")
+		for (let checkbox of foodArr) {
+			checkbox.checked = allchk2.checked;
+		}
+	}
+	
+	function ckFunc(){
+		var foodArr = document.querySelectorAll(".myfood")
+		var checkStr = ""; // 체크된 체크박스의 문자열을 저장하기 위한 변수
+		for (let checkbox of foodArr) {
+			// 체크박스의 checked 속성ㅇ true면 변수에 저장하기
+			if (checkbox.checked == true) {
+				checkStr += checkbox.value + " "
+			}
+		}
+		document.getElementById("result").innerHTML = checkStr
+	}
+
+	function ckFunc2(){
+		// var foodArr = document.querySelectorAll(".myfood")
+		var foodArr = document.querySelectorAll("input[name='food']:checked")
+		var checkStr = ""; // 체크된 체크박스의 문자열을 저장하기 위한 변수
+		
+		foodArr.forEach(function(ele){
+			//if (ele.checked){
+				checkStr += ele.value + ", ";
+			//}
+		});
+		document.getElementById("result").innerHTML = checkStr
+	}
+</script>
+</head>
+<body>
+		<form name="cbfmt">
+			<label>아이스크림</label> 
+			<input type="checkbox" name="food"
+			 value="아이스크림" id="ice" class="myfood"> 
+				<label>커피</label> <input type="checkbox"	
+				name="food" value="커피" id="coffee" class="myfood">
+				 <label>음료수</label> <input type="checkbox" 
+				 name="food" value="음료수" id="beverage" class="myfood"> 
+				<label>모두체크/해제</label>
+			<input type="checkbox" name="allchk" 
+			id="allchk" onclick="newallcheck()"><br>
+
+			<input type="button" value="전송" onclick="ckFunc2()">
+		</form>
+		<div id="result"></div>
+</body>
+</html>

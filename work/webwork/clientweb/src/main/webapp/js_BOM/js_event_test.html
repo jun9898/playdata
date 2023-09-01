@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function calc() {
+				let mytext1 = document.getElementById("num1");
+				let mytext2 = document.getElementById("num2");
+				//  result라는 id로 정의된 div 객체
+				let resultdiv = document.getElementById("result");
+				console.log(resultdiv);
+				console.log(mytext1.value);
+				mytext2.value = mytext1.value;
+				resultdiv.innerHTML= "결과 : " + (mytext1.value+2000);
+			}
+
+			function calc2() {
+				let numVal2 = document.getElementById("num2").value;
+				document.getElementById("result").innerHTML = "<h1>값 : " + numVal2*12+1000; + "</h1>"}
+
+			function display() {
+				document.getElementById("result").innerHTML = "<h1> 텍스트 상자 </h1>"}
+		</script>
+	</head>
+	<body>
+
+		<!-- 텍스트상자에서 입력한 내용이 웹페이지에 출력되도록 작업 -->
+		<div id="result" style="color: red; font-weight: bold;"></div>
+		<form>
+			<input type="text" id="num1" onkeyup="calc()"/>
+			<input type="text" id="num2" onchange="calc2()"/>
+			<input type="text" id="num3" onfocus="display()"/>
+			<input type="text" id="num4"/>
+			<input type="button" value="전송1"/>
+		</form>
+		
+		<!-- 마우스 관련 -->
+		<img alt="BTS" src="/clientweb/images/product/dog.jpg" width="300" name="myimg"
+			onmouseover="myimg.src='../images/dog3.jpg'"
+			onmouseout="myimg.src='/clientweb/images/product/dog.jpg'"/>
+		
+	</body>
+</html>

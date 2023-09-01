@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const API_KEY = "Qsbquzef5Qx%2BG13cFm0uYsiBIn2Svq9eMNUSCQOVyNmJB9dOJGZ%2FS3g%2Flp5pd7TbOzOIOoU0FjjkESnZxzNeeA%3D%3D"
+
+			async function connect() {
+				let url = `https://api.odcloud.kr/api/15119826/v1/uddi:ca49d12d-838c-4fad-8c87-f1405a80599d?page=1&perPage=10&serviceKey=${API_KEY}`
+				let response = await fetch(url);
+				let data = response.json();
+				console.log("response",data);
+			}
+			connect();
+		</script>
+	</body>
+</html>

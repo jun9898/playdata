@@ -34,8 +34,10 @@
 			// 1일 요일
 			console.log(first.getDate());
 			
+			// 테이블 요일
+			document.write("<h1>" + forGet.getFullYear() + "년 " + (forGet.getMonth()+1) + "월 ")
 			document.write("<table>")
-			document.write("<th>")
+			document.write("<tr style='background-color: pink'>")
 			document.write("<td> 일 </td>")
 			document.write("<td> 월 </td>")
 			document.write("<td> 화 </td>")
@@ -43,18 +45,24 @@
 			document.write("<td> 목 </td>")
 			document.write("<td> 금 </td>")
 			document.write("<td> 토 </td>")
-			document.write("</th>")
+			document.write("</tr>")
+			console.log(forGet.getDate)
 
 			let count = 1 - first.getDay();
 			for (let i = 0; i < Math.ceil((last.getDate()+first.getDay())/7.0); i++){
 				document.write("<tr>")
 				for (let j = 0; j < 7; j++){
 					if (count > 0 && count <= last.getDate()){
-						document.write("<td>" + count + "</td>");
+						if (count == forGet.getDate()){
+							document.write("<td style='background-color: green'>" + count + "</td>");
+							count += 1;
+						} else {
+						document.write("<td style='background-color: yellow'>" + count + "</td>");
 						count += 1;
+						}
 					} else if (count <= 0){
 						count += 1;
-						document.write("<td></td>");
+						document.write("<td style='background-color: yellow'></td>");
 					}
 				}
 				document.write("</tr>")

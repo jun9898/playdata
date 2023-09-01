@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			var timeid;
+
+			function showTime() {
+				var today = new Date();
+				var timeval = today.getHours() + "시"
+				timeval = timeval + today.getMinutes()+"분 "
+				timeval = timeval + today.getSeconds()+"초"
+				
+				document.querySelector("#time").value = timeval;
+			}
+
+			function setTimeoutTest() {
+				// location.href는 부자우저에 주소표시줄에 http://www.naver.com을 입력하고 엔터 누른것과 동일한 효과
+				setTimeout("location.href='http://www.naver.com'", 2000);
+			}
+
+			function start() {
+				timeid = setInterval(showTime, 1000);
+			}
+
+			function stop() {
+				clearInterval(timeid);
+			}
+		</script>
+	</head>
+	<body onload="showTime()">
+		<form >
+			<input type="text" id="time">
+			<input type="button" value="setTimeout테스트" onclick="setTimeoutTest()">
+			<input type="button" value="시작" onclick = "start()">
+			<input type="button" value="중지" onclick = "stop()">
+		</form>
+	</body>
+</html>

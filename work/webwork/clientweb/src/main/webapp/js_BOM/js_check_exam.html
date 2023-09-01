@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function allchecked() {
+		// 1. allchk의 상태값을 가져오기
+		var allchk = document.getElementsByName("allchk");
+		var allchkVal = allchk[0].checked;
+		console.log(allchkVal)
+
+		// 2. class 속성이 myfood인 객체들을 모두 가져오기
+		var checkprd = document.getElementsByName("prd")
+		// 3. allchk의 checked 값을 2번에서 가져온 체크박스들에 설정
+		for(let i = 0; i<checkprd.length; i++){
+			checkprd[i].checked = allchkVal;
+		}
+	}
+
+		function calc() {
+			let count = document.getElementsByName("count")[0].value;
+			let price = document.getElementsByName("price")[0].value;
+			console.log(count);
+			console.log(price);
+			//  result라는 id로 정의된 div 객체
+			let result = document.getElementsByClassName("calcprice");
+			document.getElementById("calcprice").innerHTML = "<span>값 : " + count*price; + "</span>"}
+</script>
+</head>
+
+
+<body>
+	<form name="myform">
+		<table border="1" width="1000">
+			<tr>
+				<td><input type="checkbox" name="allchk" onclick="allchecked()"/>항목명</td>
+				<td>상품정보</td>
+				<td>수량</td>
+				<td>판매가</td>
+				<td style="width: 300px">구매예정가</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd"/>완강한 치와와</td>
+				<td><img src="../images/dog3.jpg" width="150px"/></td>
+				<td><input type="text" name="count" value="1" onkeyup="calc()"/></td>
+				<td>
+				<input type="text" name="price" value="6900" onkeyup="calc()"/><span>원</span></td>
+				<td><span id="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd"/>분노한 치와와</td>
+				<td><img src="../images/product/dog.jpg" width="150px"/></td>
+				<td><input type="text" name="count" value="1" onkeyup="calc()"/></td>
+				<td><input type="text" name="price" value="7800" onkeyup="calc()"/><span>원</span></td>
+				<td><span id="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><span id="totalprice"></span><span>원</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

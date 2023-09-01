@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1 id="myh1">테스트</h1>
+		<button id="mybtn">테스트</button>
+		<script type="text/javascript">
+
+			// this는 현재 작업 중인 객체 - 어디서 실행했는지
+			const person = {
+					name: "jeon",
+					age:30,
+					getName: function() {
+						console.log("this => ",this);
+						console.log("name => ",this.name);
+					}
+			}
+			// this가 실행되는 getName은 Person객체를 기준으로 호출
+			person.getName();
+			var myfunc = person.getName;
+			myfunc();
+			
+			var myh1 = document.getElementById("myh1")
+			myh1.addEventListener("click", person.getName);
+			
+			var mybtn = document.getElementById("mybtn")
+			mybtn.addEventListener("click", person.getName.bind(person));
+
+		</script>
+		
+		
+	</body>
+</html>
