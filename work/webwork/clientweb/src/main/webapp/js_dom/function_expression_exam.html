@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	window.onload = function() {
+		
+		
+		document.querySelector("#btn1").onclick = function() {
+			alert("1번버튼이 눌려짐")
+		};
+		document.querySelector("#btn2").onclick = function() {
+			alert("2번버튼이 눌려짐")
+		};
+
+		document.getElementById("btn3").onclick = function() {
+			alert("3번 버튼이 눌러짐")
+		}
+		document.getElementById("btn4").onclick = mycallback;
+	}
+	function mycallback(){
+		alert("4번버튼 실행");
+			// 1. id가 myform인 객체를 구하기
+			// 2. myform객체의 자식노드를 구하기
+			// 3. 2번에서 구한 모든 자식노드의 탐색
+			// 4. 3번에서 자식노드를 탐색하면서 노드 이름, id 속성값을 콘솔로 출력하기
+ 		var myobj = document.getElementById("myform");
+		var childNodelist = myobj.children;
+		
+		alert(childNodelist.length)
+	
+		console.log(myobj)
+		console.log(`노드의 갯수 : ${myobj.length}`);
+
+		for (let i = 0; i < childNodelist.length; i++){
+			console.log(childNodelist[i].nodeName)
+			console.log(childNodelist[i].getAttribute("id"))
+		}
+	}
+</script>
+</head>
+<body>
+	<form id="myform">
+		<input type="button" value="1번버튼" id="btn1"/>
+		<input type="button" value="2번버튼" id="btn2"/>
+		<input type="button" value="3번버튼" id="btn3"/>
+		<input type="button" value="4번버튼" id="btn4"/>
+	</form>
+</body>
+</html>

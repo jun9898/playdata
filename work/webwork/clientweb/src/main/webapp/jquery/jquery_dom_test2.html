@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div class="test1">jQuery~~~~</div>
+			<div class="test2">jQuery~~~~</div>
+			<div id="test3">jQuery~~~~</div>
+			<div id="test4">jQuery~~~~</div>
+			<div id="test5">jQuery~~~~</div>
+		</div>
+		<p id="test">테스트</p>
+		<form>
+			<input type="button" id="nodetest" value="노드액세스">
+		</form>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#nodetest").click(function() {
+					// 특정 노드의 하위 노드를 모두 가져오기
+					let list = $("#main").children();
+					$("#main").children().css("color", "orange");
+					$("#main").children().last().css("color", "blue");
+					$("#main").children().first().css("color", "red");
+					$("#test").attr("style", "background-color: green; color: yellow; font-weight:bold; font-size: 20pt")
+				});
+			});
+		
+		</script>
+	</body>
+</html>
+
+
+
+
+

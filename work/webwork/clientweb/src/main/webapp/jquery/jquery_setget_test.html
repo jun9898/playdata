@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p id="test"> jQuery값 설정하기 </p>
+		<p></p>
+		<div id="result"></div>
+		<div id="result2"></div>
+		<form>
+			<input type="number" id="data1">
+			<input type="number" id="data2">
+			<input type="button" id="btn" value="값가져오기">
+		</form>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#result").text("<h1>h1 태그에 값 설정하기 - text()는 html 태그가 실행되지 않음</h1>")
+				$("#result2").html("<h1>h1 태그에 값 설정하기 - text()는 html 태그가 실행되지 않음</h1>")
+				$("#test").css({"color" : "blue", "border":"solid 1px red"})
+				$("#data1").on("keyup", function() {
+					// data1에 입력한 값을 읽어서 result에 출력
+					var myval = parseInt($("#data1").val())+10000;// val() 가 getter
+					$("#result").text(myval) // text()가 setter
+				})
+				$("#btn").on("click", function() {
+					var textVal = $("#result").text(); // text() 가 getter
+					$("#data2").val(textVal); // val() 가 setter
+				})
+			})
+				
+		</script>
+	</body>
+</html>

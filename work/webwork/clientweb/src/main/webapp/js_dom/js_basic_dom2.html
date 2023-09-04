@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script defer="defer" type="text/javascript"
+		 src="/clientweb/common/js/dom_test.js"></script>
+	</head>
+	<body>
+		<div class="mybox">mydomtest</div>
+		<div id="mydiv">mydomtest</div>
+		<div class="items">java</div>
+		<div class="items">oracle</div>
+		<div class="items">javascript</div>
+		<div class="items">sevlet&JSP</div>
+		<script type="text/javascript">
+			// items 라는 이름으로 class명이 정의된 모든 dom요소를 구하기
+			var items = document.querySelectorAll(".items");
+			console.log(items.length);
+			items.forEach(function(subjectdiv,i,test) {
+				console.log(subjectdiv.textContent+" : " + i);
+				console.log(test);
+				subjectdiv.classList.add(`subject-${i+1}`);
+			});
+		
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		//아이디체크하기 - 4글자 이상 , java면 이미 사용중인 아이디 아니면 사용가능아이디
+		//출력하기 - jQuery로 변경하기
+		$(document).ready(function(){
+			$("#id").on("keyup", function(){
+				if ($("#id").val().length < 4 && $("#id").val().length != 0){
+					$("#result").text("4글자 이상 아이디를 입력하세요")
+					console.log($("#id").length)
+					console.log($("#id").val())
+				} else if ($("#id").val() == "java"){
+					console.log("test1")
+					$("#result").text("이미 사용중인 아이디입니다.")
+				} else {
+					console.log("test2")
+					$("#result").text("")
+				}
+ 			})
+		});
+		
+	</script>
+</head>
+<body>
+	<h1>티몬 회원가입</h1>
+	<h2>필수항목</h2>
+	<form name="myform">
+		아이디:<input type="text" id="id" />
+	</form>
+	<div id="result" style="color: red;"></div>
+</body>
+</html>
