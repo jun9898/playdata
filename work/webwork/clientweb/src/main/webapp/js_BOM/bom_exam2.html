@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function calc() {
+				let mytext1 = document.getElementById("num1").value;
+				if (mytext1.length < 4 && mytext1.length != 0){
+					let resultdiv = document.getElementById("result");
+					resultdiv.innerHTML= ("4글자 이상의 글자를 입력하세요");
+				} else if (mytext1 == "java"){
+					let resultdiv = document.getElementById("result");
+					resultdiv.innerHTML= ("이미 사용중인 아이디입니다.");
+				} else {
+					let resultdiv = document.getElementById("result");
+					resultdiv.innerHTML= ("");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<span> 아이디 : 
+			<input type="text" id="num1" onkeyup="calc()"/>
+			</span>
+			<p id="result"></p>
+		</form>
+		
+		
+	</body>
+</html>

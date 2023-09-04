@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#count").keyup(function() {
+			var num1 = $("#count").val()
+ 			var parentNode = $("#count").parent().parent()
+ 			var nodeTest = parentNode.children().children();
+		})
+	})
+</script>
+</head>
+<body>
+	<form name="myform">
+		<table border="1" width="800">
+			<tr>
+				<td><input type="checkbox" name="allchk"/>항목명</td>
+				<td>상품정보</td>
+				<td>수량</td>
+				<td>판매가</td>
+				<td>구매예정가</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd"/>완강한 치와와</td>
+				<td><img src="../images/dog3.jpg" width="150px"/></td>
+				<td><input type="text" id="count" value="1"/></td>
+				<td>
+				<input type="text" id="price" value="6900"/><span>원</span></td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd"/>분노한 치와와</td>
+				<td><img src="../images/product/dog.jpg" width="150px"/></td>
+				<td><input type="text" name="count" value="1"/></td>
+				<td><input type="text" name="price" value="7800"/><span>원</span></td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><span id="totalprice"></span><span>원</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
