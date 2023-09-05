@@ -17,6 +17,9 @@
 		$("#deleteDivAndP").on("click",function() {
 			$("#root").empty();
 		})
+		$("#filterdel").on("click",function() {
+			$("#root p:last").remove();
+		})
 		
 		
 	});
@@ -38,7 +41,7 @@
 	<button id="insertP">P태그추가하기</button>
 	<button id="deleteP">P태그삭제하기</button>
 	<button id="deleteDivAndP">div안의 모든 p태그 삭제하기</button>
-	<button onclick="innerHTML_test()">innerHTML</button>
+	<button id="filterdel">선택자 적용하기</button>
 
 
 </body>
