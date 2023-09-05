@@ -22,7 +22,9 @@ public class FileCompareUtil {
 		ArrayList<String> result = new ArrayList<>();
 		BufferedReader bf = new BufferedReader(new FileReader(fstFileName));
 		BufferedReader bf2 = new BufferedReader(new FileReader(scdFileName));
+		int count = 0;
 		while(true) {
+			count++;
 			String bfResult = bf.readLine();
 			String bf2Result = bf2.readLine();
 			if (bfResult == null && bf2Result == null) {
@@ -31,7 +33,7 @@ public class FileCompareUtil {
 			if (bfResult.equals(bf2Result)) {
 				continue;
 			} else {
-				result.add(bf2Result);
+				result.add("LINE " + count + " : " + bf2Result);
 			}
 		}
 		return result ;
