@@ -150,7 +150,34 @@ WHERE (DEPTNO, SAL) IN (SELECT DEPTNO , MIN(SAL)
 			  			FROM EMP
 			  			GROUP BY DEPTNO)  
 			  			
+CREATE TABLE customer(
+	id varchar2(20) primary key,
+	name varchar2(20),
+	pass varchar2(20),
+	addr varchar2(20),
+	regdate date,
+	point number,
+	memo varchar2(50));
+
+ALTER TABLE CUSTOMER
+ADD (email varchar2(20));
+
+DESC customer;
 
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 

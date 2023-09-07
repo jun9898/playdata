@@ -41,4 +41,22 @@
   	<servlet-name>life</servlet-name>
   	<url-pattern>/life.html</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>param</servlet-name>
+  	<servlet-class>basic.ParamTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>param</servlet-name>
+  	<url-pattern>/paramtest.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>post</servlet-name>
+  	<servlet-class>basic.PostFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>post</servlet-name>
+  	<url-pattern>/post.do</url-pattern>
+  </servlet-mapping>
 </web-app>
