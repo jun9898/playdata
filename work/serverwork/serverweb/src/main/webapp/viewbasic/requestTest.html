@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h2>서블릿요청하는 방법</h2>
+		<h2>1. get방식으로 요청하기</h2>
+		<h3>1)하이퍼링크로 요청하기</h3>
+		<a href="/serverweb/requesttest.do">서블릿요청</a>
+		<a href="/serverweb/gugudan.html">구구단요청하기</a>
+		<h3>2)submit버튼으로 요청 - form태그의 method속성을 get으로 정의</h3>
+		<form method="get" action="/serverweb/requesttest.do">
+			아이디:<input type="text" name="id" /><br/>
+			패스워드:<input type="password" name="pass" /><br/>
+			<input type="submit" value="로그인"/>
+		</form>
+		<br/><br/>
+		
+		<h3>3)submit버튼으로 요청 - form태그의 method속성을 생략하는 경우</h3>
+		<form action="/serverweb/requesttest.do">
+			아이디:<input type="text" name="id" /><br/>
+			패스워드:<input type="password" name="pass" /><br/>
+			<input type="submit" value="로그인"/>
+		</form>
+		<br/><br/>
+		<h3>2. post방식으로 요청하기</h3>
+		<h3>1) submit버튼으로 요청 - form태그의 method속성을 post로 정의하는 경우</h3>
+		<form action="/serverweb/requesttest.do" method="post">
+			아이디:<input type="text" name="id" /><br/>
+			패스워드:<input type="password" name="pass" /><br/>
+			<input type="submit" value="로그인"/>
+		</form>
+		<br/><br/>
+		
+		<h3>2) post방식으로 /life.html요청하기</h3>
+		<form action="/serverweb/life.html" method="post">
+			아이디:<input type="text" name="id" /><br/>
+			패스워드:<input type="password" name="pass" /><br/>
+			<input type="submit" value="로그인"/>
+		</form>
+		<br/><br/>
+		
+		
+		
+		<h3>3. 자바스크립트로 요청하기</h3>
+		<input type="button" value="자바스크립트로 서블릿 요청하기"
+			 					onclick="location.href='/serverweb/requesttest.do'">
+			 
+	</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- 4. 외부문서로 정의하고 연결해서 사용하는 방법 -->
+		<script type="text/javascript" src="../common/js/mytest.js"></script>
+		<!-- 2. head태그 내부에 정의하고 사용하는 방법 -->
+		<script type="text/javascript">
+			console.log("head태그 내부")
+			function test(){
+				alert("안녕하세요")
+			}
+		</script>
+		
+	</head>
+	<body>
+		<!-- 1. body태그 내부에서 정의하고 사용하는 방법 -->
+		<script type="text/javascript">
+			document.write("<h1>브라우저에 html태그 실행해서 출력하기 - 연습용</h1>")
+			console.log("자바의 sysout과 비슷한 역할을 한다")
+			test();
+			test2();
+		</script>
+		<!-- 3. inline으로 태그 내부에서 자바 스크립트 코드를 삽입(이벤트 핸들러에 연결) -->
+		<input type="button" value="자바스크립트 명령어 실행하기" onclick="alert('안녕~~~~~')">
+		<input type="button" value="자바스크립트 함수 실행하기" onclick="test()">
+		<a href="javascript:test()">자바스크립트 함수 호출</a>
+		<input type="button" value="외부문서에 정의된 함수 호출하기" onclick="test2()">
+		
+		<script type="text/javascript">
+		
+		</script>
+	</body>
+</html>

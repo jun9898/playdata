@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function test() {
+				// console.log("num = " + num)
+				let num = 10;
+				console.log("num = " + num)
+			}
+			test()
+			// 지역변수지만 블럭 밖에서 사용이 가능하다.
+			for (let i = 1; i <= 10; i++){
+				console.log("i = " + i)
+			}
+			console.log("===================")
+			// console.log("i = " + i) => let은 지역변수로 인식되므로 선언된 위치 밖에서 사용 불가능
+			
+			let sum = 100;
+			console.log("sum = " + sum)
+			sum = 1000;
+			console.log("sum = " + sum)
+			sum = "test";
+			console.log("sum = " + sum)
+			// 동일한 이름의 변수를 선언해서 사용할 수 있다. - let을 쓰면 재할당은 가능하나 재선언은 불가능
+			// let sum = "javascript"; // 재선언
+			console.log("sum = " + sum)
+
+			
+			
+			const data = "test";
+			data = "javascript"; // 상수로 선언되었음으로 값을 변경할 수 없다.
+			console.log("data = " + data)
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

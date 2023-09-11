@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		// 표현식을 이용해서 함수를 정의하면 호이스팅이 안된다.
+			// myfunc(1000);
+			var myfunc = function test(num){
+				if (num >= 90) {
+					console.log("합격")
+				} else {
+					console.log("불합격")
+				}
+			}
+			var myfunc2 = function(num){
+				if (num >= 90) {
+					console.log("합격")
+				} else {
+					console.log("불합격")
+				}
+			}
+			//표현식을 이용해서 함수를 정의한 경우 실제 함수명을 사용할 수 없다.
+			//test(1000);
+			myfunc(1000);
+			myfunc2(10);
+			// 즉시실행함수
+			(function(){
+				alert("즉시 실행 함수 테스트")
+			})();
+
+			(function(num){
+				alert("즉시 실행 함수 테스트"+num)
+			})(200);
+		</script>
+	</body>
+</html>

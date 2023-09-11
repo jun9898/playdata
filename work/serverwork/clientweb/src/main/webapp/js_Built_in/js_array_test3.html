@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function showArr(myArr) {
+				for (let i = 0; i < myArr.length; i++){
+					document.write("<h3> 배열의 " + i+ "번째 요소 => " + myArr[i] + "</h3>");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 배열에서 사용할 수 있는 메소드(함수)
+			let myArr = [1,7,3,2,6,5,4];
+			let myArr2 = ["javascript","servlet", "jquery", "spring"];
+			
+			showArr(myArr);
+			// join 메소드는 매개변수로 전달된 문자열과 배열의 요소가 연결되어 하나의 문자열로 리턴
+			document.write("<hr/>");
+			let data1 = myArr2.join(",")
+			document.write(data1+"<br/>");
+			document.write(typeof data1 + "<br/>");
+			document.write("<hr/>");
+			//문자열을 구분해서 배열로 만들기
+			let data2 = data1.split(",")
+			showArr(data2);
+			document.write("<hr/>");
+			// 배열의 요소를 거꾸로 출력하기
+			let data3 = myArr2.reverse();
+			showArr(data3)
+			document.write("<hr/>");
+			
+			// 배열정렬
+			let data4 = myArr2.sort();
+			showArr(data4)
+			document.write("<hr/>");
+			
+			// 배열요소 넣기 - 마지막 요소에 추가
+			myArr2.push("mongodb");
+			showArr(data4)
+			document.write("<hr/>");
+
+		</script>
+	</body>
+</html>
