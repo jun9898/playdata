@@ -11,12 +11,13 @@ import basic.MemberDTO;
 //member테이블에 대한 CLRUD(CRUD)메소드를 정의
 public class MemberDAO {
 	//login
-	public void login(String id,String pass) {
+	public MemberDTO login(String id,String pass) {
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
 		StringBuffer sql = new StringBuffer();
 		sql.append("select * from member where id=? and pass=?");
+		MemberDTO member = null;
 		try {
 			con =  DBUtil.getConnect();
 			ptmt =  con.prepareStatement(sql.toString());
@@ -24,22 +25,18 @@ public class MemberDAO {
 			ptmt.setString(2, pass);
 			rs = ptmt.executeQuery();
 			if(rs.next()) {
-				System.out.print(rs.getString("id")+"\t");
-				System.out.print(rs.getString("pass")+"\t");
-				System.out.print(rs.getString("name")+"\t");
-				System.out.print(rs.getString("addr")+"\t");
-				System.out.print(rs.getDate("regdate")+"\t");
-				System.out.print(rs.getInt("point")+"\t");
-				System.out.println(rs.getString(7)+"\t");
-				System.out.println("로그인성공");
+				 member = new MemberDTO(rs.getString("id"), rs.getString("pass") , rs.getString("name"), 
+								rs.getString("addr"), rs.getDate("regdate"), rs.getInt("point"),
+								rs.getString(7));
 			}else {
-				System.out.println("로그인실패");
+				return null;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBUtil.close(rs, ptmt, con);
 		}
+		return member;
 	}
 
 	//select
@@ -53,6 +50,7 @@ public class MemberDAO {
 			con =  DBUtil.getConnect();
 			ptmt =  con.prepareStatement(sql.toString());
 			rs = ptmt.executeQuery();
+
 			while(rs.next()) {
 				System.out.print(rs.getString("id")+"\t");
 				System.out.print(rs.getString("pass")+"\t");
@@ -168,6 +166,35 @@ public class MemberDAO {
 		try {
 			con =  DBUtil.getConnect();
 			ptmt =  con.prepareStatement(sql.toString());
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				member = new MemberDTO(rs.getString("id"), rs.getString("pass") , rs.getString("name"), 
+						rs.getString("addr"), rs.getDate("regdate"), rs.getInt("point"),
+						rs.getString(7));
+				memberList.add(member);
+			}
+			System.out.println("조회된 레코드의 갯수 : " + memberList.size());
+		}  catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(rs, ptmt, con);
+		}
+	return memberList;
+	}
+
+	//search
+	public ArrayList<MemberDTO> search(String addr) {
+		ArrayList<MemberDTO> memberList = new ArrayList<MemberDTO>();
+		MemberDTO member = null;
+		Connection con = null;
+		PreparedStatement ptmt = null;
+		ResultSet rs = null;
+		StringBuffer sql = new StringBuffer();
+		sql.append("select * from member where addr like ?");
+		try {
+			con =  DBUtil.getConnect();
+			ptmt =  con.prepareStatement(sql.toString());
+			ptmt.setString(1, "%"+addr+"%");
 			rs = ptmt.executeQuery();
 			while(rs.next()) {
 				member = new MemberDTO(rs.getString("id"), rs.getString("pass") , rs.getString("name"), 

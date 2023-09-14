@@ -9,12 +9,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>요청 재지정으로 실행되는 jsp - 회원 insert 수행 완료</h2>
 
+	<jsp:include page="../top.jsp"/>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2 sidenav">
+				<jsp:include page="/layout/emp_menu.jsp"/>
+			</div>
+			<div class="col-lg-10">
 	<% 
 	ArrayList<MemberDTO> data = 
 		(ArrayList<MemberDTO>)request.getAttribute("mydata"); 
 	%>
+	<div class="col-lg-10">
 	<h1> 회원목록 보기 </h1>
 	<hr>
 
@@ -38,6 +46,9 @@
 	<% } %>
 	
 	</table>
-
+ 			</div>
+		</div>
+	</div>
+	</div>
 </body>
 </html>
