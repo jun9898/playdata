@@ -25,12 +25,4 @@ public class PaymentServiceImpl implements PaymentService{
 		// TODO Auto-generated method stub
 		pgobj.cancel();
 	}
-
-
-
-
-
-
-	
-
 }

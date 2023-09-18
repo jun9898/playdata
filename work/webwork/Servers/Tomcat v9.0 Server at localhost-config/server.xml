@@ -105,7 +105,7 @@
 				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 				<Context docBase="serverweb" path="/serverweb" reloadable="true" source="org.eclipse.jst.jee.server:serverweb"/>
-			<Context docBase="clientweb" path="/clientweb" reloadable="true" source="org.eclipse.jst.jee.server:clientweb"/></Host>
+			<Context docBase="clientweb" path="/clientweb" reloadable="true" source="org.eclipse.jst.jee.server:clientweb"/><Context docBase="frontController" path="/frontController" reloadable="true" source="org.eclipse.jst.jee.server:frontController"/></Host>
 		</Engine>
 	</Service>
 </Server>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="dao" class="basic.MemberDAO"/>
+	<bean id="insa" class="basic.InsaImpl">
+		<constructor-arg ref="dao"/>
+	</bean>
+
+	<!-- 첫 연습(Logic) -->
+	<bean id="Logic" class="di.constructor01.LogicImpl"/>
+	<bean id="service" class="di.constructor01.MyServiceImpl">
+		<constructor-arg value="JBJ" index="0"/>
+		<constructor-arg index="1">
+			<value>너무졸리다</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="Logic"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 다이스 연습 -->
+	<bean id="dice" class="di.constructor02.Dice"/>
+	<bean id="play" class="di.constructor02.Player">
+		<constructor-arg>
+			<ref bean="dice"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- outputter 연습 -->
+	<bean id="outputter" class="di.constructor03.FileOutputter"/>
+	<bean id="message" class="di.constructor03.MessageBean">
+		<constructor-arg value="JBJ"/>
+		<constructor-arg value="배부르당"/>
+		<constructor-arg>
+			<ref bean="outputter"/>
+		</constructor-arg>
+	</bean>
+
+</beans>

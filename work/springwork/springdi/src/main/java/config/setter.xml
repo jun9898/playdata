@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dao" class="basic.setter.MemberDAO"/>
+	<!-- <constructor-arg 엘리먼트가 정의되지 않으면 무조건 기본생성자가 호출 -->
+	<bean id="insa" class="basic.setter.InsaImpl">
+		<property name="dao" ref="dao"/>
+	</bean>
+
+	
+	<bean id="logic" class="di.setter01.LogicImpl"/>
+	<bean id="service" class="di.setter01.MyServiceImpl">
+		<property name="logic" ref="logic"/>
+		<property name="name" value="test"/>
+		<property name="msg" value="msgtest"/>
+	</bean>
+
+	<bean id="dice" class="di.setter02.Dice"/>
+	<bean id="player" class="di.setter02.Player">
+		<property name="d" ref="dice"/>
+	</bean>
+
+	<bean id="outputter" class="di.setter03.FileOutputter"/>
+	<bean id="msg" class="di.setter03.MessageBean">
+		<property name="name" value="jbj"/>
+		<property name="greeting" value="안녕"/>
+		<property name="outputter" value="outputter"/>
+	</bean>
+
+</beans>
