@@ -11,5 +11,8 @@
 	<hr/>
 	<h2><a href="/springmvc/getdata">spring request test</a></h2>
 	<h2><a href="/springmvc/gugu">7단 출력하기</a></h2>
+	<h2><a href="/springmvc/showview">파라미터 추출 테스트</a></h2>
+	<h2><a href="/springmvc/showform">POST DTO를 사용한 예제</a></h2>
+	<h2><a href="/springmvc/springjdbc/test">emp테이블 갯수 조회하기</a></h2>
 </body>
 </html>
