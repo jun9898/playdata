@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- template 등록
+		 name : 등록하는 템플릿의 이름 (파일명과 상관없이 내가 정의하는 이름)
+		 template : 실제 템플릿으로 만들어놓은 파일의 경로와 파일명
+		 <definition> 엘리먼트의 하위 엘리먼트로 템플릿의 각 영역에 연결될 JSP파일을 정의하고 영역의 이름을 정의한다.
+		 put-attribute 엘리먼트를 이용해서 각 영역을 등록
+		 	name : 각 영역에 대한 이름 (사용자 정의)
+		 	value : 각 영역에 연결될 뷰(jsp)의 파일 경로와 이름
+	 -->
+	<definition name="indexTemplate" template="/WEB-INF/layout/index.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="content" value="/WEB-INF/include/mainContent.jsp"/>
+	</definition>
+
+	<definition name="index" extends="indexTemplate">
+	</definition>
+</tiles-definitions>
