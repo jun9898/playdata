@@ -9,7 +9,7 @@
 <body>
 			<div class="col-lg-10">
 				<form role="form" class="form-horizontal"
-					action="/erp/dept/insert.do" method="post"
+					action="/erp/dept/register" method="post"
 					
 					name="myform">
 					<fieldset>
@@ -22,7 +22,7 @@
 							<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 							<div class="col-sm-3">
 								<input type="text" id="orgname" name="deptno"
-									placeholder="부서코드" class="form-control" minlength="4" required>
+									placeholder="부서코드" class="form-control" required>
 
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 							<label class="control-label col-sm-2" for="deptname">부서명</label>
 							<div class="col-sm-3">
 								<input type="text" id="deptname" name="deptname"
-									placeholder="부서명" class="form-control" minlength="4" required>
+									placeholder="부서명" class="form-control" required>
 
 							</div>
 						</div>
@@ -44,7 +44,7 @@
 							<label class="control-label col-sm-2" for="deptStartDay">부서시작일</label>
 							<div class="col-sm-3">
 								<input type="text" id="deptStartDay" name="deptStartDay"
-									placeholder="부서시작일" class="form-control" minlength="10">
+									placeholder="부서시작일" class="form-control" >
 
 							</div>
 						</div>
@@ -53,7 +53,7 @@
 							<label class="control-label col-sm-2" for="deptEndDay">부서종료일</label>
 							<div class="col-sm-3">
 								<input type="text" id="deptEndDay" name="deptEndDay"
-									placeholder="부서종료일" class="form-control" minlength="15">
+									placeholder="부서종료일" class="form-control" >
 
 							</div>
 						</div>
@@ -62,7 +62,7 @@
 							<label class="control-label col-sm-2" for="deptlevel">부서레벨</label>
 							<div class="col-sm-3">
 								<input type="text" id="deptlevel" name="deptlevel"
-									placeholder="부서레벨" class="form-control" minlength="1">
+									placeholder="부서레벨" class="form-control" >
 
 							</div>
 						</div>
@@ -71,7 +71,7 @@
 							<label class="control-label col-sm-2" for="deptstep">순서</label>
 							<div class="col-sm-3">
 								<input type="text" id="deptstep" name="deptstep"
-									placeholder="순서" class="form-control" minlength="1">
+									placeholder="순서" class="form-control" >
 
 							</div>
 						</div>
@@ -130,7 +130,7 @@
 							<label class="control-label col-sm-2" for="deptaddr">부서주소</label>
 							<div class="col-sm-6">
 								<input type="text" id="deptaddr" name="deptaddr"
-									placeholder="부서주소" class="form-control" minlength="4" required>
+									placeholder="부서주소" class="form-control"  required>
 
 							</div>
 						</div>
@@ -140,7 +140,7 @@
 							<label class="control-label col-sm-2" for="depttel">대표전화번호</label>
 							<div class="col-sm-5">
 								<input type="text" id="depttel" name="depttel"
-									placeholder="대표전화번호" class="form-control" minlength="5"
+									placeholder="대표전화번호" class="form-control" 
 									required>
 
 							</div>
@@ -156,7 +156,7 @@
 				</form>
 			</div>
 	<div>
-		<a href="/erp/emp/list.do">회원목록보기</a>
+		<a href="/erp/dept/list">부서목록보기</a>
 	</div>
 </body>
 </html>

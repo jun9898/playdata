@@ -26,17 +26,6 @@
 	<context:component-scan base-package="com.playdata.erp" />
 	<context:component-scan base-package="main" />
 
-	<beans:bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<beans:property name="url" value="jdbc:oracle:thin:@192.168.0.7:1521:xe"/>
-		<beans:property name="username" value="hr"/>
-		<beans:property name="password" value="hr"/>
-	</beans:bean>	
-	
-	<!-- SQL을 실행할 수 있는 기능을 제공하는 클래스 -->
-	<beans:bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
-		<beans:constructor-arg ref="ds"/>
-	</beans:bean>
 	
 	<!-- 1. tiles 설정파일을 스프링 내부에서 인식할 수 있도록 등록 -->
 	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer" id="tilesConfigurer">
@@ -51,5 +40,23 @@
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
 		<beans:property name="order" value="1"/>
 	</beans:bean>
+
+
+	<!-- jdbc에서 DriverManager방식으로 커넷견을 생성해서 관리 (요청이 들어오면 커넥션을 생성해서 넘겨주는 방식 -->
+	<beans:bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@192.168.0.7:1521:xe"/>
+		<beans:property name="username" value="erp"/>
+		<beans:property name="password" value="erp"/>
+	</beans:bean>	
+	
+	<!-- SQL을 실행할 수 있는 기능을 제공하는 클래스 -->
+	<beans:bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:constructor-arg ref="ds"/>
+	</beans:bean>
+	
+	
+	
+	
 	
 </beans:beans>

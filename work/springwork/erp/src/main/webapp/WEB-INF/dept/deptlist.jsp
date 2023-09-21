@@ -15,8 +15,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
-<body>
-
+	<body>
 			<div >
 				<h3>부서목록</h3>
 				<div style="padding-top: 30px">
@@ -38,27 +37,27 @@
 							</tr>
 						</thead>
 						<tbody>
-					
+							<c:forEach var="dept" items="${deptlist }">
 								<tr>
-									<td><a href=""></a></td>
-									<td></td>
+
+									<td><a href="/erp/dept/getdept?deptno=${dept.deptno }&cmd=view">${dept.deptno }</a></td>
 									
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td>${dept.deptname }</td>
+									<td>${dept.deptStartDay }</td>
+									<td>${dept.deptlevel }</td>
+									<td>${dept.deptstep }</td>
+									<td>${dept.deptuppercode }</td>
+									<td>${dept.job_category }</td>
+									<td>${dept.mgr_id }</td>
+									<td>${dept.deptaddr }</td>
+									<td>${dept.depttel }</td>
 									<td><a
-										href="/erp/dept/delete.do?deptno=">삭제</a></td>
+										href="/erp/dept/delete?deptno=${dept.deptno }">삭제</a></td>
 								</tr>
-							<%}	%>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
-			
 			</div>
-</body>
+	</body>
 </html>
