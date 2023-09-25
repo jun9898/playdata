@@ -42,10 +42,11 @@
 	</beans:bean>
 
 
-	<!-- jdbc에서 DriverManager방식으로 커넷견을 생성해서 관리 (요청이 들어오면 커넥션을 생성해서 넘겨주는 방식 -->
+	<!-- jdbc에서 DriverManager방식으로 커넥션을 생성해서 관리 (요청이 들어오면 커넥션을 생성해서 넘겨주는 방식 -->
 	<beans:bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<beans:property name="url" value="jdbc:oracle:thin:@192.168.0.7:1521:xe"/>
+		<!-- 집에서 할때는 아이피 변경해줘야 함 -->
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
 		<beans:property name="username" value="erp"/>
 		<beans:property name="password" value="erp"/>
 	</beans:bean>	
@@ -55,8 +56,14 @@
 		<beans:constructor-arg ref="ds"/>
 	</beans:bean>
 	
-	
-	
-	
+	<!-- MyBatis를 사용하기 위한 설정 -->
+	<!-- mybatis 내부에서 DataSource를 통해 커넥션을 획득하고 관리하는 객체 -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="ds"/>
+		<beans:property name="configLocation" value="/WEB-INF/config/mybatis-config.xml"/>
+	</beans:bean>
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sqlSessionFactory"/>
+	</beans:bean>
 	
 </beans:beans>

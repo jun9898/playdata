@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,23 +84,15 @@
 						</ul>
 						<div id="boardMain" style="padding-top: 20px; padding-left: 10px">
 							<table>
-								<tr>
-									<td class="boardContent" style="">mini프로젝트 개최</td>
-									<td class="boardDate" style="">2023.5.30</td>
-								</tr>
-								<tr>
-									<td class="boardContent" style="">kimsaemERP ver2.0출시</td>
-									<td class="boardDate" style="">2023.5.29</td>
-								</tr>
-								<tr class="boardRow">
-									<td class="boardContent">사옥 이전날짜 확정</td>
-									<td class="boardDate">2023.06.11</td>
-								</tr>
-								<tr class="boardRow">
-									<td class="boardContent">보안의 날 참석 인원 확정</td>
-									<td class="boardDate">2023.6.11</td>
-								</tr>
 							
+							<c:forEach var="board" items="${boardlist}">
+								<tr>
+									<td class="boardContent" style=""><a href="/erp/board/read?board_no=${board.board_no }&cmd=view">${board.title }</a></td>
+									<td class="boardDate" style="">${board.write_date }</td>
+								</tr>
+							</c:forEach>
+
+
 							</table>
 						</div>
 					</div>

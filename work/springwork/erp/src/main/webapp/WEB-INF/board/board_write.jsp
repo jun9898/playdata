@@ -25,13 +25,13 @@
 			<div class="form-panel">
 			
 				<form class="form-horizontal style-form" 
-					action="/springmvc/board/write.do" method="post">
+					action="/erp/board/write" method="post">
 					<div class="form-group" style="border: 1px solid #eff2f7;">
 						
 						<label class="col-sm-2 col-sm-2 control-label">작성자</label>
 						<div class="col-sm-10">
-							<input type="hidden" name="id" value="lee">
-							<p class="form-control-static">김서연</p>
+							<input type="hidden" name="id" value="${user.id }">
+							<p class="form-control-static">${user.name }</p>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 col-sm-2 control-label">게시글 유형</label>

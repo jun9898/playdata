@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,16 +31,27 @@
 			<ul class="nav navbar-nav navbar-right"
 				style="position: relative; top: 20px">
 
-				<li style="margin-right: 20px; height: 70px"><a
-					href="/erp/emp/login.do"><span
-						class="glyphicon glyphicon-log-in"> </span>Login</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
-						Logout</a></li>
+				<c:choose>
+					<c:when test="${user==null }">
+						<li style="margin-right: 20px; height: 70px"><a
+							href="/erp/emp/login"><span
+								class="glyphicon glyphicon-log-in"> </span>Login</a></li>
 			</ul>
+			</c:when>
+			<c:otherwise>
+				<li><a href="/erp/emp/spring/logout"><span
+						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				<li><a href="/erp/emp/mypage"><span
+						class="glyphicon glyphicon-log-out"></span> mypage</a></li>
 
-			<span class="navbar-form pull-right"> <img class="img-circle"
-				style="width: 60px; height: 70px" src="/erp/images/kimdong.jpg" />
-			</span>
+				</ul>
+
+				<span class="navbar-form pull-right"> <img class="img-circle"
+					style="width: 60px; height: 70px"
+					src="/erp/images/${user.profile_photo }" />
+				</span>
+			</c:otherwise>
+			</c:choose>
 
 			<form class="navbar-form pull-right"
 				style="position: relative; top: 20px">
@@ -56,15 +68,14 @@
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="/erp/index.do">Home</a></li>
 					<li><a href="/erp/menu/insa.do">업무관리</a></li>
 					<li><a href="#">자원관리</a></li>
-					<li><a href="/erp/menu/board.do">커뮤니티</a></li>
+					<li><a href="/erp/board/list?category=all">커뮤니티</a></li>
 					<li><a href="#">일정관리</a></li>
 					<li><a href="#">휴가관리</a></li>
 					<li><a href="#">결재</a></li>
 				</ul>
-
 			</div>
 		</div>
 	</nav>
