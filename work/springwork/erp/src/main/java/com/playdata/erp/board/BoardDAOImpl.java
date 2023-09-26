@@ -72,4 +72,14 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSessionTemplate.selectList("com.playdata.erp.board.categorySelect", category);
 	}
 
+	@Override
+	public int insertFile(List<BoardFileDTO> boardfiledtolist) {
+		return sqlSessionTemplate.insert("com.playdata.erp.board.fileinsert", boardfiledtolist);
+	}
+
+	@Override
+	public List<BoardFileDTO> getFileList(String boardno) {
+		return sqlSessionTemplate.selectList("com.playdata.erp.board.fileselect", boardno);
+	}
+
 }

@@ -10,4 +10,8 @@
 			and m.deptno = d.deptno
 			and d.job_category = j.job_id
 	</select>
+	<insert id="insert" parameterType="member">
+		insert into member
+		values(#{id},sysdate,#{title},#{content},#{category})
+	</insert>
 </mapper>

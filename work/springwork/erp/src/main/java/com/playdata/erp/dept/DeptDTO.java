@@ -12,8 +12,8 @@ public class DeptDTO {
 	private String mgr_id;
 	private String deptaddr;
 	private String depttel;
+
 	public DeptDTO(){
-		
 	}
 	
 	public DeptDTO(String deptno, String deptname) {

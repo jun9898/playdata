@@ -75,6 +75,21 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-2 text-right">
+				<label for="title" class="control-label">첨부파일</label>
+			</div>
+			<div class="col-md-8">
+			<!-- 디비에 저장된 파일명을 출력  -->
+				<c:forEach var="file" items="${boardfiledtolist}">
+					<h5><a>${file.originalFilename }</a></h5>
+					<img src="/erp/upload/${file.storeFilename}" width="300"/>
+				</c:forEach>
+			</div>
+		</div>
+		
+		
+		
+		<div class="form-group">
+			<div class="col-md-2 text-right">
 				<label for="title" class="control-label">작성날짜</label>
 			</div>
 			<div class="col-md-8">

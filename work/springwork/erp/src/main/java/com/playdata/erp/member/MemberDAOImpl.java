@@ -25,8 +25,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public int insert(MemberDTO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSessionTemplate.selectOne("com.playdata.erp.member.insert", user);
 	}
 
 	@Override
@@ -62,9 +61,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberDTO login(MemberDTO loginUser) {
 		// TODO Auto-generated method stub
-		System.out.println("dao ======== " +loginUser);
 		MemberDTO user = sqlSessionTemplate.selectOne("com.playdata.erp.member.login", loginUser);
-		System.out.println("로그인 결과 => " +user);
 		return user;
 	}
 

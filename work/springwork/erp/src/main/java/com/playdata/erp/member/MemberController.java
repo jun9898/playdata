@@ -1,5 +1,7 @@
 package com.playdata.erp.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+
+import com.playdata.erp.dept.DeptDTO;
+import com.playdata.erp.dept.DeptService;
 
 @Controller
 @RequestMapping("/emp")
@@ -25,13 +30,15 @@ import org.springframework.web.bind.support.SessionStatus;
 public class MemberController {
 	
 	MemberService service;
+	DeptService deptService;
 
 	@Autowired
-	public MemberController(MemberService service) {
+	public MemberController(MemberService service, DeptService deptService) {
 		super();
 		this.service = service;
+		this.deptService = deptService;
 	}
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "login";
@@ -96,7 +103,15 @@ public class MemberController {
 	}
 	
 	@GetMapping("/insert")
-	public String insertPage() {
+	public String insertPage(Model model) {
+		List<DeptDTO> deptlist = deptService.select();
+		model.addAttribute("deptlist", deptlist);
+		return "member/insertPage";
+	}
+
+	@PostMapping("/insert")
+	public String insertMember(MemberDTO member, HttpSession session) {
+		service.insert(member);
 		return "member/insertPage";
 	}
 
