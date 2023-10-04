@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>반복문과 공유객체 작업하기</h1>
+	<hr/>
+	<h2><span th:text="${#calendars.format(#calendars.createNow(),'yyyy/MM/dd HH:mm')}"></span></h2>
+	<div th:each="i:${#numbers.sequence(1,10)}">
+		<div th:text="${i}"></div>
+	</div>
+	
+	<h2>1. 공유된 객체 출력</h2>
+	<div>
+		<h2>아이디 : <span th:text="${person.id}"></span></h2>
+		<h2>패스워드 : <span th:text="${person.pass}"></span></h2>
+		<h2>성명 : <span th:text="${person.name}"></span></h2>
+		<h2>점수 : <span th:text="${person.jumsu}"></span></h2>
+	</div>
+
+	<h2>2. 공유된 List객체에서 DTO 꺼내서 출력 (테이블로 출력하기)</h2>
+	<table style="border: solid 1px">
+		<tr th:each="person:${list}">
+		<td th:text="'아이디 : ' + ${person.id}"></td>
+		<td th:text="'패스워드 : ' + ${person.pass}"></td>
+		<td th:text="'성명 : ' + ${person.name}"></td>
+		<td th:text="'점수 : ' + ${person.jumsu}"></td>
+		<tr>
+	</table>
+
+	<h2>3. 조건에 따라 값을 출력</h2>
+	<table border="1">
+		<tr th:each="person:${list}">
+		<td th:text="'아이디 : ' + ${person.id}"></td>
+		<td th:text="'패스워드 : ' + ${person.pass}"></td>
+		<td th:text="'성명 : ' + ${person.name}"></td>
+		<td th:text="'점수 : ' + ${person.jumsu}"></td>
+		<td th:text="${90 le person.jumsu} ? '합격' : '불합격'"></td>
+		<tr>
+	</table>
+
+	<h2>4. 하이퍼링크로 요청하기 (get방식으로 데이터 보내기)</h2>
+	<!-- 
+		 파라미터를 하이퍼링크로 요청하면서 보내기
+		 th:href "@{요청path(파라미터명=값,파라미터명=값....)}
+		 @RequestMapping에서 정의한 path명
+	-->
+	<h3><a th:href="@{/th/linktest(data1=${person.name})}">하이퍼링크로 요청하기1</a></h3>
+	<h3><a th:href="@{/th/linktest(data1=${person.name},id=${person.id})}">하이퍼링크로 요청하기2</a></h3>
+	
+	
+	
+</body>
+</html>
