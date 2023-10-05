@@ -10,6 +10,18 @@
 <body>
 	<div layout:fragment="content">
 		상품목록 조회
+		<!-- 각 항목을 선택하면 각 항목에 대한 상세페이지가 response될 수 있도록 작업(product폴더에 productRead.html)
+			 요청path : /layout/prodread
+			 각 아이템에 하이퍼링크로 요청되도록
+			 요청할때 prdno라는 파라미터명에 prd001, prd002, prd003값을 전송 (단, 값은 db에서 가져온 값이라고 생각하고 작업)
+			 상세페이지 실행화면 캡쳐해서 메일로 전송
+		-->
+		<ul>
+			<li><a th:href="@{/layout/prdread(prdno=${'prd001'}, prdname=${'사과'})}">사과</a></li>
+			<li><a th:href="@{/layout/prdread(prdno=${'prd002'}, prdname=${'배'})}">배</a></li>
+			<li><a th:href="@{/layout/prdread(prdno=${'prd003'}, prdname=${'키위'})}">키위</a></li>
+			<li><a th:href="@{/layout/prdread(prdno=${'prd004'}, prdname=${'오렌지'})}">오렌지</a></li>
+		</ul>
 	</div>
 
 </body>
