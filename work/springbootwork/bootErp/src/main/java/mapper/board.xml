@@ -57,7 +57,9 @@
 	<insert id="fileinsert" parameterType="java.util.List">
 		insert all
 		<foreach collection="list" item="file" separator=" ">
-			into board_file values(tbboard_seq.currval,#{file.originalFilename},#{file.storeFilename},#{file.boardFileorder})
+			into
+			board_file
+			values(tbboard_seq.currval,#{file.originalFilename},#{file.storeFilename},#{file.boardFileorder})
 		</foreach>
 		select * from dual
 	</insert>
@@ -68,10 +70,16 @@
 		select * from
 		tbboard where board_no= #{board_no}
 	</select>
-	
+
 	<!-- 게시글에 첨부된 파일의 목록을 같이 조회 -->
-	<select id="fileselect" parameterType="String" resultType="boardfile">
+	<select id="fileselect" parameterType="String"
+		resultType="boardfile">
 		select * from board_file where board_no=#{board_no}
+	</select>
+
+	<select id="getfileinfo" parameterType="boardfile" resultType="boardfile">
+		select * from board_file
+		where board_no=#{board_no} and boardFileorder=#{boardFileorder}
 	</select>
 
 	<!-- 게시글 수정하기 -->

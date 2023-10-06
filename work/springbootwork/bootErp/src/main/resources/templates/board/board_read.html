@@ -63,8 +63,10 @@
 
 			<div class="col-md-8" th:each="file:${boardfiledtolist}">
 			<h5>
-				<a><span th:text="${file.originalFilename }"></span></a>
-				<img src="/erp/upload/${file.storeFilename}" width="300"/>
+				<a th:href="@{/board/download/{id}/{board_no}/{boardFileorder}(id=${board.id},board_no=${board.board_no},boardFileorder=${file.boardFileorder})}">
+					<span th:text="${file.originalFilename }"></span>
+				</a>
+				<img th:src="|@{/download/}${file.storeFilename}|" width="300"/>
 			</h5>
 			</div>
 

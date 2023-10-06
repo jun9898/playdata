@@ -80,7 +80,14 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public List<BoardFileDTO> getFileList(String boardno) {
-		return sqlSessionTemplate.selectList("com.playdata.erp.board.fileselect", boardno);
+		List<BoardFileDTO> filelist = sqlSessionTemplate.selectList("com.playdata.erp.board.fileselect", boardno);
+		System.out.println(filelist);
+		return filelist;
+	}
+
+	@Override
+	public BoardFileDTO getFile(BoardFileDTO inputdata) {
+		return sqlSessionTemplate.selectOne("com.playdata.erp.board.getfileinfo", inputdata);
 	}
 
 }

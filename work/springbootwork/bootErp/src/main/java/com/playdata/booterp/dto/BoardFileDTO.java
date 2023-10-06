@@ -14,9 +14,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @Alias("boardfile")
 public class BoardFileDTO {
-	private String boardno;
+	private String board_no;
 	private String originalFilename;
 	private String storeFilename;
-	private String boardfileorder;
+	private String boardFileorder;
 	
 }

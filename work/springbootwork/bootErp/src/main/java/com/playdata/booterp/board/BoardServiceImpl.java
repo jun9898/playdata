@@ -83,4 +83,10 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getFileList(boardno);
 	}
 
+	@Override
+	public BoardFileDTO getFile(BoardFileDTO inputdata) {
+		// TODO Auto-generated method stub
+		return dao.getFile(inputdata);
+	}
+
 }

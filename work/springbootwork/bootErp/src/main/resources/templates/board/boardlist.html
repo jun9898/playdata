@@ -6,6 +6,19 @@
 <title>Bootstrap Example</title>
 <meta charset="UTF-8">
 
+	<script type="text/javascript" th:inline="javascript">
+			//타임리프에서 사용하는 변수를 자바스크립트에서 사용하는 경우
+			var category = /*[[${category}]]*/
+				$(document).ready(function() {
+					//alert(category)
+					$("#category").val(category).attr("selected", "selected");
+					$("#category").change(function() {
+					//select를 선택하면 컨트롤러가 실행되고 파라미터가 선택한 category의 value속성 값이 파라미터로 전달
+					//alert($(this).val());
+						location.href = "/erp/board/list?category=" + encodeURI($(this).val());
+					})
+			});
+		</script>
 
 </head>
 <body>

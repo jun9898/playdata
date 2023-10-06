@@ -26,6 +26,8 @@ public interface BoardService {
 	List<BoardDTO> findByCategory(String category);
 	//게시글을 상세보기 한 경우 보여질 첨부파일의 목록
 	List<BoardFileDTO> getFileList(String boardno);
+	// 파일 정보를 조회
+	BoardFileDTO getFile(BoardFileDTO inputdata);
 
 	
 }
