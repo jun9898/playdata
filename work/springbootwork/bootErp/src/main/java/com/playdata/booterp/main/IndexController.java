@@ -21,7 +21,7 @@ public class IndexController {
 		this.service = service;
 	}
 
-	@RequestMapping("/index.do")
+	@RequestMapping("/index.html")
 	public String indexView(Model model) {
 //		// 첫 페이지가 로딩될 때 필요한 데이터를 가져오기 위해서 서비스 연결 (게시판 데이터)
 		List<BoardDTO> list = service.findByCategory("게시판");
