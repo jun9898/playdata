@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>JPA테스트</h1>
+	<hr/>
+	<h2><a href="/jpatest/insert">EntityManager를 이용해서 insert</a></h2>
+	<h2><a href="/jpatest/read?id=3&cmd=view">EntityManager를 이용해서 select(id가 3번)</a></h2>
+	<h2><a href="/jpatest/delete?id=4">EntityManager를 이용해서 delete(id가 4번)</a></h2>
+	<h2><a href="/jpatest/read?id=3&cmd=update">EntityManager를 이용해서 update(id가 3번)</a></h2>
+	<h2><a href="/jpatest/list">EntityManager를 이용해서 전체 목록 조회하기</a></h2>
+	<h2><a href="/jpa/page/list?pageNo=0">페이징 처리</a></h2>
+
+</body>
+</html>

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -12,11 +13,14 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+// 이제부터는 JPA가 관리하는 객체, 테이블과 매핑되는 객체
 @Entity
 @Table(name = "person")
 public class PersonEntity {
 	// 기본키로 설정 - 기본키는 의미있는 값을 넣기 보다 Long타입으로 시퀀스를 적용하거나 UUID를 이용해서값을 만드는것을 선호
 	@Id
+	// 시퀀스
+	@GeneratedValue
 	private Long id;
 	@Column(name="pass")
 	private String password;
@@ -30,7 +34,7 @@ public class PersonEntity {
 	@UpdateTimestamp
 	private Date modifyDate;
 	// 오라클의 데이터 타입을 blob이나 clob을 정의할 수 있다.
-	// @Lob으로 정의된 필드가 Sting이면 나동으로 CLOB으로 타입의 정의
+	// @Lob으로 정의된 필드가 Sting이면 자동으로 CLOB으로 타입의 정의
 	@Lob
 	private String info;
 	@Transient // 디비테이블에 컬럼으로 포함시키지 않겠다는 의미
@@ -51,6 +55,16 @@ public class PersonEntity {
 		this.modifyDate = modifyDate;
 		this.info = info;
 		this.testval = testval;
+	}
+	
+	
+
+	public PersonEntity(String password, String name, int jumsu, String info) {
+		super();
+		this.password = password;
+		this.name = name;
+		this.jumsu = jumsu;
+		this.info = info;
 	}
 
 	@Override
