@@ -3,6 +3,9 @@ package com.playdata.jpaTest.springdata.test;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.playdata.jpaTest.entitymanager.test.PersonEntity;
@@ -30,5 +33,7 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Long> {
 	List<BoardEntity> findByTitleContaining(String title);
 	List<BoardEntity> findByBoardNoGreaterThanEqual(Long boardNo);
 	List<BoardEntity> findByCreateDateGreaterThanEqual(Date createDate);
+	Page<BoardEntity> findByContentContaining(String title,Pageable pageRequest);
+	Slice<BoardEntity> findByContentStartingWith(String title,Pageable pageRequest);
 
 }

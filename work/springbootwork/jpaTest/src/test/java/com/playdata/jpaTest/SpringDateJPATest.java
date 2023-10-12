@@ -65,11 +65,6 @@ class SpringDateJPATest {
 		print(repository.findAllById(Lists.newArrayList(1L,2L,3L)));
 	}
 
-	void print(List<BoardEntity> list) {
-		for (BoardEntity board : list) {
-			System.out.println(board);
-		}
-	}
 	
 	@Test
 	@Disabled
@@ -134,6 +129,7 @@ class SpringDateJPATest {
 	}
 	
 	@Test
+	@Disabled
 	public void querymethodtest() throws ParseException {
 		System.out.println("===============================================");
 		print(repository.findByTitle("쉬는시간"));
@@ -163,15 +159,29 @@ class SpringDateJPATest {
 		print(repository.findByCreateDateGreaterThanEqual(new SimpleDateFormat("yyyy-MM-dd").parse("2023-10-11")));
 		System.out.println("===============================================");
 	}
+
+	@Test
+//	@Disabled
+	public void pageTest2() {
+		// 페이지처리를 하기 위해서 PageRequest객체를 생성해서 작업
+		Page<BoardEntity> list =  repository.findByContentContaining("jpa", PageRequest.of(0, 5));
+		// (PageRequest.of(0, 5)) 0은 현제 페이지 번호, 5는 한 페이지에 보여줄 레코드 갯수
+		System.out.println("===============================================");
+		System.out.println("boardlist : " + list);
+		System.out.println("total(전체 레코드수) " + list.getTotalElements());
+		System.out.println("totalPage(페이지수) " + list.getTotalPages());
+		System.out.println("현재 조회한 레코드수 " + list.getNumberOfElements());
+		System.out.println("정렬 " + list.getSort());
+		System.out.println("한페이지의 사이즈 " + list.getSize());
+		// 페이징 처리 후 page 객체에 저장된 레코드를 꺼내서 ArrayList에 담에서 리턴
+		print(list.getContent()); 
+		System.out.println("===============================================");
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	void print(List<BoardEntity> list) {
+		for (BoardEntity board : list) {
+			System.out.println(board);
+		}
+	}
 
 }

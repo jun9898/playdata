@@ -1,10 +1,12 @@
-package com.playdata.jpaTest.entitymanager.exam;
+package com.playdata.jpaTest.relation;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -32,6 +34,17 @@ public class ProductEntity {
 	private Date createDate;
 	@UpdateTimestamp
 	private Date updateDate;
+	@ManyToOne
+	@JoinColumn(name = "categoryId")
+	private CategoryEntity category;
+
+	public ProductEntity(String productName, String company, int price, CategoryEntity category) {
+		super();
+		this.productName = productName;
+		this.company = company;
+		this.price = price;
+		this.category = category;
+	}
 
 	public ProductEntity(String productName, String company, int price) {
 		super();
@@ -39,6 +52,7 @@ public class ProductEntity {
 		this.company = company;
 		this.price = price;
 	}
+	
 	
 	
 }

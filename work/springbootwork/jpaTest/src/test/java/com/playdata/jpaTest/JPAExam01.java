@@ -9,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.playdata.jpaTest.entitymanager.exam.ProductDAO;
-import com.playdata.jpaTest.entitymanager.exam.ProductEntity;
+import com.playdata.jpaTest.relation.ProductEntity;
 
 @SpringBootTest
 @Transactional
@@ -18,7 +17,7 @@ import com.playdata.jpaTest.entitymanager.exam.ProductEntity;
 class JPAExam01 {
 	
 	@Autowired
-	ProductDAO dao;
+	com.playdata.jpaTest.relation.ProductDAO dao;
 	
 	@Test
 	@Disabled

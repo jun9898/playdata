@@ -1,4 +1,4 @@
-package com.playdata.jpaTest.entitymanager.exam;
+package com.playdata.jpaTest.relation;
 
 import java.util.List;
 
