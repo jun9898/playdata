@@ -5,7 +5,11 @@ const Movie = function(props) {
         <div className="row">
             {props.list.map((row) =>
                 <MovieList 
-                    key={row.movieId} title={row.title} url={row.url} genre={row.genre}>
+                    key={row.movieId} 
+                    title={row.title}
+                    url={row.url} 
+                    alt={row.alt} 
+                    genre={row.genre}>
                 </MovieList>
             )}
         </div>

@@ -1,9 +1,13 @@
-const MovieList = function(props) {
+const MovieList = function({movieId,title,alt,url,genre}) {
+    function myevent(event) {
+        event.preventDefault()
+        alert(title)
+    }
     return (
-        <div className="col-3">
-            <p>{props.title}</p>
-            <img src={props.url}></img>
-            <p>{props.genre}</p>
+        <div className="col-3" onClick={myevent}>
+            <p>{title}</p>
+            <img src={url} alt={alt}/>
+            <p>{genre}</p>
         </div>
 
     )
