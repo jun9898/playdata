@@ -1,0 +1,46 @@
+.App {
+}
+
+/* editor */
+
+.commentEditor {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 20px;
+}
+
+.commentEditor input,
+textarea {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.commentEditor input {
+  padding: 10px;
+}
+.commentEditor textarea {
+  padding: 10px;
+  height: 150px;
+}
+
+.commentEditor select {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.commentEditor button {
+  width: 500px;
+  padding: 10px;
+  cursor: pointer;
+}
+.comment{
+  background-color: rgb(240,240,240);
+  margin-bottom: 10px;
+  padding: 20px
+}
+.comment .info{
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
