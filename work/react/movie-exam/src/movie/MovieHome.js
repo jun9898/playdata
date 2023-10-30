@@ -75,9 +75,10 @@ const MovieHome = () => {
     let resdata = await fetch("https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20231011")
                                 .then((res) => res.json())
     console.log("resdata ===================================")
-    console.log(resdata)
+    let result = resdata.boxOfficeResult.dailyBoxOfficeList
+    console.log(result)
     
-    const initdata = resdata.map((comment) => {
+    const initdata = result.map((comment) => {
       console.log("map data ===========", comment)
         return {
         //     // 2. 우리 데이터에 맞게 수정
