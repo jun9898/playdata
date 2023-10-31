@@ -9,4 +9,6 @@ public interface CommentDAO {
     void write(CommentReqeustDTO commentRequest);
     List<CommentEntity> findAll();
     CommentEntity findByCommentNo(Long commentNo);
+    CommentEntity update(Long commentNo, CommentReqeustDTO comment);
+    String delete(Long commentNo);
 }

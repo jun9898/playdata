@@ -39,4 +39,14 @@ public class CommentController {
     public ResponseEntity<?> read(@PathVariable/* ("commentNo") 생략이 가능하다 */ Long commentNo) {
         return ResponseEntity.ok(service.findByCommentNo(commentNo));
     }
+
+    @PutMapping("/update/{commentNo}")
+    public ResponseEntity<?> update(@PathVariable Long commentNo, @RequestBody CommentReqeustDTO request){
+        return ResponseEntity.ok(service.update(commentNo, request));
+    }
+
+    @DeleteMapping("/delete/{commentNo}")
+    public ResponseEntity<?> delete(@PathVariable Long commentNo) {
+        return ResponseEntity.ok(service.delete(commentNo));
+    }
 }
