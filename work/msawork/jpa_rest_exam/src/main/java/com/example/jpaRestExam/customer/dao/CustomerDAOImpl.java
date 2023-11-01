@@ -2,8 +2,6 @@ package com.example.jpaRestExam.customer.dao;
 
 import com.example.jpaRestExam.customer.model.CustomerEntity;
 import com.example.jpaRestExam.customer.model.RequestCustomerDTO;
-import com.example.jpaRestExam.customer.model.ResponseCustomerDTO;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

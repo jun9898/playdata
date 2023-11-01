@@ -1,7 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Commnet = ({commentNo,writer,rank,content,writeDate,deleteRun}) => {
+const Commnet = ({commentNo,writer,rank,content,writeDate}) => {
+    const deleteRun = (commentNo) => {
+        console.log(commentNo)
+        fetch("http://127.0.0.1:9000/comment/delete/"+commentNo, {
+            method:"DELETE"
+        }).then(res => res.text())
+          .then(res => {
+            if (res === "ok"){
+                alert("삭제 성공")
+                window.location.href="/list"
+            }else{
+                alert("삭제 실패")
+            }
+          })
+    }
     return (
         <div className='comment'>
             <div className='info'>
@@ -18,7 +32,7 @@ const Commnet = ({commentNo,writer,rank,content,writeDate,deleteRun}) => {
                     deleteRun(commentNo)
                 }
             }}>삭제</button>
-            <button>수정</button>
+            <button><Link to={`/update/${commentNo}`}>수정</Link></button>
             <button><Link to={`/read/${commentNo}`}>상세보기</Link></button>
         </div>
     );

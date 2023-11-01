@@ -25,6 +25,7 @@ const CommentWrite = () => {
           .then(res => {
                 console.log(res)
             })
+        window.location.href="/list"
     }
 
     const changeState = (e) => {

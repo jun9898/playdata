@@ -2,11 +2,13 @@ package com.example.jpaRestExam.jpatest.relation;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -18,6 +20,7 @@ class JPARelationTest {
     EntityManager em;
 
     @Test
+    @Disabled
     void test() {
         DeptEntity dept1 = new DeptEntity("전산실", "장동건");
         DeptEntity dept2 = new DeptEntity("인사팀", "전콜라");
@@ -53,6 +56,7 @@ class JPARelationTest {
     }
 
     @Test
+    @Disabled
     void test2() {
         DeptEntity dept = em.find(DeptEntity.class, 1L);
         List<EmpEntity> emplist = dept.getEmplist();
@@ -61,6 +65,27 @@ class JPARelationTest {
             System.out.println(empEntity);
         }
         System.out.println("========================");
-
     }
+
+    @Test
+    @Rollback(value = false)
+    void test3() {
+        // 사원을 등록할때 경력사항을 같이 등록하기
+        // 파라미터로 전달받은 부서 코드를 이용해서 부서정보 조회
+        DeptEntity dept = em.find(DeptEntity.class, 1L);
+
+        // 경력사항 3개
+        List<HistoryEntity> historyEntityList = new ArrayList<>();
+        historyEntityList.add(new HistoryEntity("samsung", "backend 개발"));
+        historyEntityList.add(new HistoryEntity("lg", "cloud 개발"));
+        historyEntityList.add(new HistoryEntity("MS", "보안"));
+
+        EmpEntity emp = EmpEntity.buildEmpEntity("전병준", "독산", dept, historyEntityList);
+
+        em.persist(emp);
+    }
+
+
+
+
 }

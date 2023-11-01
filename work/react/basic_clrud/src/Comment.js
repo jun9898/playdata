@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Comment = ({id,writer,content,rank,write_date, deleteRun}) => {
+const Comment = ({id,writer,content,rank,write_date}) => {
     return (
         <div className='comment'>
             <div className='info'>
@@ -13,7 +13,7 @@ const Comment = ({id,writer,content,rank,write_date, deleteRun}) => {
             <button onClick={() => {
                 console.log(id, "===============================")
                 if(window.confirm(`${id} 의 댓글을 삭제하시겟습니까?`)) {
-                    deleteRun(id)
+                //    deleteRun(id)
                 }
             }}
             >삭제</button>

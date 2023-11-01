@@ -14,9 +14,13 @@ import java.util.List;
 @Entity
 @ToString
 @Table(name = "mydept")
+@SequenceGenerator(
+        name = "mymember_seq_generator",
+        sequenceName = "mymember_seq"
+)
 public class DeptEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mymember_seq_generator")
     private Long deptNo;
     private String name;
     private String mgr;

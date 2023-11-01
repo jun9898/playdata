@@ -1,33 +1,38 @@
-package com.example.jpaRestExam.jpatest.category;
+package com.example.jpaRestExam.product.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "category")
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class CategoryEntity {
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name="category")
+public class Category {
     @Id
     @GeneratedValue
     private Long categoryId;
     private String categoryName;
     private String info;
-
     @OneToMany(mappedBy = "category")
-    @ToString.Exclude
-    private List<ProductEntity> productList = new ArrayList<>();
+    List<Product> productList;
 
-    public CategoryEntity(String categoryName, String info) {
+    public Category(String categoryName, String info) {
         this.categoryName = categoryName;
         this.info = info;
     }
 }
+
+
+
+
+
+
+
+
+
+
