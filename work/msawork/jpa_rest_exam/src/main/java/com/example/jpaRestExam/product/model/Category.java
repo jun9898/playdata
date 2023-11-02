@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Category {
     private Long categoryId;
     private String categoryName;
     private String info;
+    @ToString.Exclude
     @OneToMany(mappedBy = "category")
     List<Product> productList;
 

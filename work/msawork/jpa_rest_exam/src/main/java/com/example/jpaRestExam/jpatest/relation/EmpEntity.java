@@ -29,6 +29,9 @@ public class EmpEntity {
 
     @OneToMany(mappedBy = "emp", cascade = CascadeType.ALL)
     private List<HistoryEntity> historyList = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name = "user_id") // EmpEntity의 user_id와 join
+    private PrivateInfoEmpEntity infoEmpEntity;
 
     public EmpEntity(String name, String addr, DeptEntity dept) {
         this.name = name;

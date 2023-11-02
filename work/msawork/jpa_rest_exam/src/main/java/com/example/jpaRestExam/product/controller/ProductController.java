@@ -1,7 +1,6 @@
 package com.example.jpaRestExam.product.controller;
 
-import com.example.jpaRestExam.product.model.Category;
-import com.example.jpaRestExam.product.model.ProductRequest;
+import com.example.jpaRestExam.product.model.*;
 import com.example.jpaRestExam.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -49,4 +50,17 @@ public class ProductController {
     public String delete(@PathVariable Long productNo) {
         return "product/prdlist";
     }
+
+    @PostMapping("/order")
+    public String order(RequestProductListDTO dto, Model model) {
+        List<RequestProductDTO> list = dto.getList()
+                .stream()
+                .filter((e) -> e.getChecked() != null)
+                .collect(Collectors.toList());
+        model.addAttribute("list" , list);
+        return "redirect:/product/list";
+    }
+
+
+
 }

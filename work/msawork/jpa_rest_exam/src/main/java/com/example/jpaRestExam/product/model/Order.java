@@ -1,8 +1,5 @@
 package com.example.jpaRestExam.product.model;
 
-import com.example.jpaRestExam.jpatest.relation.DeptEntity;
-import com.example.jpaRestExam.jpatest.relation.EmpEntity;
-import com.example.jpaRestExam.jpatest.relation.HistoryEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -15,7 +12,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "order")
+@Table(name = "order_table")
 public class Order {
 
     @Id
@@ -25,7 +22,10 @@ public class Order {
     private Date createOrder;
     private String addr;
     private int totalPrice;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Customer customer;
+    @OneToMany(mappedBy = "order_column", cascade = CascadeType.PERSIST)
     private List<OrderProduct> orderProductList = new ArrayList<>();
 
     public Order(String addr) {
@@ -34,7 +34,7 @@ public class Order {
 
     public void changeOrderProduct(OrderProduct orderProduct){
         orderProductList.add(orderProduct);
-        orderProduct.setOrder(this);
+        orderProduct.setOrder_column(this);
     }
 
     public static Order buildOrderEntity(String addr, List<OrderProduct> list) {

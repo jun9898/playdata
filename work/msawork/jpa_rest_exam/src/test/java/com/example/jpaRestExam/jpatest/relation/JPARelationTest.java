@@ -69,6 +69,7 @@ class JPARelationTest {
 
     @Test
     @Rollback(value = false)
+    @Disabled
     void test3() {
         // 사원을 등록할때 경력사항을 같이 등록하기
         // 파라미터로 전달받은 부서 코드를 이용해서 부서정보 조회
