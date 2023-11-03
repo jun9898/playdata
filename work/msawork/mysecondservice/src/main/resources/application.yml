@@ -1,0 +1,12 @@
+
+server:
+  port: 9200
+
+spring:
+  application:
+    name: mysecondservice
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

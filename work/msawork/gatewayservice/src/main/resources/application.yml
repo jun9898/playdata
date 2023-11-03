@@ -1,0 +1,59 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://192.168.0.16:8761/eureka
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        # ?? ??? ???? ???? id?
+        - id: first-service
+          # ??? ???? ??? first/? ???? ?? ??? ?? ip? port??? ?? ??? ???? ????
+          uri: http://127.0.0.1:9100/
+          predicates:
+            - Path=/first/**
+          filters:
+#            - AddRequestHeader=firstreq,requestheaderfilterTest
+#            - AddResponseHeader=firstres,responseheaderfilterTest
+#            - MyFilter
+            - AddRequestHeader=data,mydata
+            - FilterA
+            - FilterB
+            - FilterC
+
+        # ?? ???? ??? ??? ?????
+        - id: second-service
+          uri: http://127.0.0.1:9200/
+          predicates:
+            - Path=/second/**
+          filters:
+#            - AddRequestHeader=secondreq,requestheaderfilterTest2
+#            - AddResponseHeader=secondres,responseheaderfilterTest2
+#            - MyFilter
+            - AddRequestHeader=data,test
+            - FilterA
+            - FilterB
+
+        - id: third-service
+          uri: http://127.0.0.1:9300/
+          predicates:
+            - Path=/third/**
+          filters:
+            - AddRequestHeader=secondreq,requestheaderfilterTest2
+            - AddResponseHeader=secondres,responseheaderfilterTest2
+            - MyFilter
+
+        - id: woojin
+          uri: http://192.168.0.25:1400/
+          predicates:
+            - Path=/woojin/**
+
