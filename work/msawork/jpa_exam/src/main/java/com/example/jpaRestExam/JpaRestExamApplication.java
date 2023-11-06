@@ -10,4 +10,5 @@ public class JpaRestExamApplication {
         SpringApplication.run(JpaRestExamApplication.class, args);
     }
 
+
 }
