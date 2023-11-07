@@ -1,4 +1,4 @@
-package com.example.springsecuritytest.controller;
+package com.example.springsecuritytest.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

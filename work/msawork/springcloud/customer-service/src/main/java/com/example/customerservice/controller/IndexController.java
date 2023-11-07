@@ -1,13 +1,16 @@
 package com.example.customerservice.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class ViewController {
+public class IndexController {
 
 
     @GetMapping("/")
@@ -15,21 +18,12 @@ public class ViewController {
         return "index";
     }
 
-    @GetMapping("/mylogin")
-    public String login() {
-        return "loginForm";
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
     }
 
-    @GetMapping("/login-error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "loginForm";
-    }
 
-    @GetMapping("/user/page")
-    @PreAuthorize("hasAnyAuthority('ROLE_USER')")
-    public String userpage() {
-        return "UserPage";
-    }
+
 
 }

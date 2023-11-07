@@ -20,7 +20,7 @@ public class ViewController {
 
     @GetMapping("/login-error")
     public String loginError(Model model) {
-        model.addAttribute("loginError", false);
+        model.addAttribute("loginError", true);
         return "loginForm";
     }
 
