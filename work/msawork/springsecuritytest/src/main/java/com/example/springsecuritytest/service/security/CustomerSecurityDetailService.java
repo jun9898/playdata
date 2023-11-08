@@ -4,6 +4,8 @@ import com.example.springsecuritytest.DAO.SampleDAOImpl;
 import com.example.springsecuritytest.model.SampleEntity;
 import com.example.springsecuritytest.service.security.CustomerUserDetail;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CustomerSecurityDetailService implements UserDetailsService {
+
+//    ProviderManager a;
 
     private final SampleDAOImpl dao;
     // 기본적으로 AuthenticationProvider에 의해 호출되는 메소드로 유저아이디를 이용해서 DB에서 조회한 결과를 UserDetails타입으로 리턴

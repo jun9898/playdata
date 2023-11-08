@@ -25,15 +25,16 @@ public class CustomerResponseDTO {
     private String role;
 
   
-//    public static  CustomerResponseDTO entityToDto(CustomerEntity entity){
-//        return CustomerResponseDTO.builder()
-//                .id(entity.getId())
-//                .password(entity.getPassword())
-//                .name(entity.getName())
-//                .addr(entity.getAddr())
-//                .tel(entity.getTel())
-//                .writeDate(entity.getWriteDate())
-//                .modifyDate(entity.getModifyDate())
-//                .point(entity.getPoint()).build();
-//    }
+    public static  CustomerResponseDTO entityToDto(CustomerEntity entity){
+        return CustomerResponseDTO.builder()
+                .customerGenerateId(entity.getCustomerGenerateId())
+                .username(entity.getUsername())
+                .password(entity.getPassword())
+                .name(entity.getName())
+                .addr(entity.getAddr())
+                .tel(entity.getTel())
+                .writeDate(entity.getWriteDate())
+                .modifyDate(entity.getModifyDate())
+                .point(entity.getPoint()).build();
+    }
 }

@@ -11,10 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SampleDTO2 {
 
-    private String id;
+    private Long id;
+    private String username;
     private String pass;
     private String name;
-    private String addr;
-    private String memo;
 
 }

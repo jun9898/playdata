@@ -1,13 +1,16 @@
 package com.example.springsecuritytest.config;
 
 import com.example.springsecuritytest.service.security.CustomerSecurityDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.springsecuritytest.service.security.MyAuthenticationProvider;
+import com.example.springsecuritytest.service.security.handler.MyFailureHandler;
+import com.example.springsecuritytest.service.security.handler.MySuccessHandler;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,12 +19,15 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@EnableWebSecurity(debug = true)
+//@EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class MySecurityConfig {
 
-    @Autowired
-    CustomerSecurityDetailService customerSecurityDetailService;
+    private final CustomerSecurityDetailService customerSecurityDetailService;
+    private final MySuccessHandler successHandler;
+    private final MyFailureHandler failureHandler;
+
 
     // 메모리로 사용자를 관리할 수 있도록 설정할 수 있는 객체
     // 테스트용 추후 DB와 연동해야함
@@ -61,6 +67,13 @@ public class MySecurityConfig {
         return roleHierarchy;
     }
 
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        return new MyAuthenticationProvider(customerSecurityDetailService, passwordEncoder());
+    }
+
+/*
+    @Bean - UserDetailService만 커스터마이징 하는 경우
     public AuthenticationProvider authenticationProvider() {
         // DB연동으로 인증 처리를 수행하는 provider
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -68,6 +81,7 @@ public class MySecurityConfig {
         provider.setUserDetailsService(customerSecurityDetailService);
         return provider;
     }
+*/
 
     // 기본 필터체인은 모든 페이지를 검증
     // 첫번째 페이지를 모두 허용하고 나머지만 검증하도록 변경
@@ -83,14 +97,23 @@ public class MySecurityConfig {
                 .formLogin(login ->
                         login.loginPage("/mylogin")
                                 .permitAll()
+/*
+                                우선순위가 낮아 핸들러의 작업을 우선적으로 처리한다
                                 .defaultSuccessUrl("/", true)
                                 .failureUrl("/login-error")
+*/
+                                // 로그인을 진행시킬 시 적용시킬 핸들러
+                                .successHandler(successHandler)
+                                .failureHandler(failureHandler)
                 ).logout(logout -> logout.logoutSuccessUrl("/"))
                 // 권한이 없으면 accesserrer 발동
                 .exceptionHandling(exception ->
                         exception.accessDeniedPage("/accesserror")
                 )
                 .csrf().disable(); // 시큐리티 로그인 페이지가 실행되도록 처리 (사용자 정의 페이지 등록 가능)
+        AuthenticationManagerBuilder authenticationManagerBuilder =
+               http.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.authenticationProvider(authenticationProvider());
         return http.build();
     }
 
