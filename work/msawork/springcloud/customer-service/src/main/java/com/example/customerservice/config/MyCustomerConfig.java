@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,7 +19,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-//@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
 public class MyCustomerConfig {
@@ -64,10 +63,6 @@ public class MyCustomerConfig {
                     .authenticated();
                 }).formLogin(login -> login.loginPage("/customer/login")
                         .permitAll()
-/*
-                        .defaultSuccessUrl("/", false)
-                        .failureUrl("/customer/login-error")
-*/
                                 .successHandler(customSuccessHandler)
                                 .failureHandler(customFailureHandler)
                         ).logout(logout -> logout.logoutSuccessUrl("/"))
