@@ -7,13 +7,13 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@127.0.0.1:1521:xe
-    username: jpatest
-    password: jpatest
+    username: msatest
+    password: msatest
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
-#      ddl-auto: none
+#      ddl-auto: create
+      ddl-auto: none
 
     properties:
       hibernate:

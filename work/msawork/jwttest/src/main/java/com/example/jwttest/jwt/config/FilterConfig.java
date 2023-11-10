@@ -1,12 +1,11 @@
 package com.example.jwttest.jwt.config;
 
-import com.example.jwttest.jwt.filter.MyTestFilter1;
-import com.example.jwttest.jwt.filter.MyTestFilter2;
-import com.example.jwttest.jwt.filter.MyTestFilter3;
-import com.example.jwttest.jwt.filter.RequestTestFilter;
+import com.example.jwttest.jwt.filter.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -14,6 +13,7 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class FilterConfig {
 
+/*
     @Bean
     public FilterRegistrationBean<MyTestFilter1> makefilter1() {
         FilterRegistrationBean<MyTestFilter1> filter1 = new FilterRegistrationBean<>(new MyTestFilter1());
@@ -38,7 +38,19 @@ public class FilterConfig {
 
         return filter3;
     }
+*/
 
+/*
+    @Bean
+    public FilterRegistrationBean<JwtAuthenticationFilter> myfilter() {
+        FilterRegistrationBean<JwtAuthenticationFilter> filter = new FilterRegistrationBean<>(new JwtAuthenticationFilter());
+        filter.addUrlPatterns("/*"); //이러한 url요청에 필터 1을 실행
+        filter.setOrder(1); //숫자가 작은 순서대로 적용
+        return filter;
+    }
+*/
+
+/*
     @Bean
     public FilterRegistrationBean<RequestTestFilter> makefilter4() {
         FilterRegistrationBean<RequestTestFilter> filter4 = new FilterRegistrationBean<>(new RequestTestFilter());
@@ -47,6 +59,7 @@ public class FilterConfig {
 
         return filter4;
     }
+*/
 
     @Bean
     public CorsFilter corsFilter() {
