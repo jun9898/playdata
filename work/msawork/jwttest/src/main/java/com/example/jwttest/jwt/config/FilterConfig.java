@@ -70,12 +70,19 @@ public class FilterConfig {
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true); //json서버 응답을 사바 스크립트에서 처리할 수 있도록 허용
-        config.addAllowedOrigin("*"); //모든 ip에 대해서 응답을 허용
-        config.addAllowedOrigin("*"); //모든 http method를 허용
+        //json서버 응답을 사바 스크립트에서 처리할 수 있도록 허용
+        //크로스 도메인에서 요청을 주고 받을때 쿠키에 대한 처리, Authorization이 있는 요청 모두 허용
+        //클라이언트에서도 처리
+        config.setAllowCredentials(true);
+        //버전이 달라지면서 사용메소드가 변경
+//        config.addAllowedOrigin("*"); //모든 ip에 대해서 응답을 허용
+        config.addAllowedOriginPattern("*");
+        config.addAllowedMethod("*"); //모든 http method를 허용
         config.addAllowedHeader("*"); //모든 http header를 허용
+        // 외부에서 헤더값을 읽기 위한 설정
+        config.addExposedHeader("Authorization");
 
-        source.registerCorsConfiguration("/api/**", config);
+        source.registerCorsConfiguration("/**", config);
 
         return new CorsFilter(source);
 

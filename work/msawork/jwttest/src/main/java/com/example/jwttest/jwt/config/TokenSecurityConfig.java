@@ -1,11 +1,13 @@
 package com.example.jwttest.jwt.config;
 
+import com.example.jwttest.jwt.dao.SampleRepository;
 import com.example.jwttest.jwt.filter.JwtAuthenticationFilter;
 import com.example.jwttest.jwt.filter.TokenCheckFilter;
 import com.example.jwttest.jwt.service.CustomerSecurityDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
@@ -19,12 +21,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.filter.CorsFilter;
 
+import javax.annotation.security.PermitAll;
+
 @EnableWebSecurity(debug = true)
 @RequiredArgsConstructor
 public class TokenSecurityConfig {
 
     private final CorsFilter corsFilter;
     private final UserDetailsService customerSecurityDetailService;
+    private final SampleRepository repository;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -62,14 +67,17 @@ public class TokenSecurityConfig {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-                .addFilter(new TokenCheckFilter(authenticationManager()))
+                .addFilter(new TokenCheckFilter(authenticationManager(),repository))
                 .authorizeRequests()
-                .antMatchers("/api/**")
+                .antMatchers(HttpMethod.OPTIONS, "**").permitAll()
+                .antMatchers("/my/api/**")
                 .access("hasRole('USER') or hasRole('ADMIN')")
                 .antMatchers("/admin/api/**")
                 .access("hasRole('ADMIN')")
                 .anyRequest()
                 .permitAll()
+                .and()
+                .cors()
         ;
 
 

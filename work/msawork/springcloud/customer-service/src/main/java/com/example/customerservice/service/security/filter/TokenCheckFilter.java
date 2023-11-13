@@ -1,11 +1,13 @@
-package com.example.jwttest.jwt.filter;
+package com.example.customerservice.service.security.filter;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.example.jwttest.jwt.dao.SampleRepository;
-import com.example.jwttest.jwt.model.CustomerUserDetail;
-import com.example.jwttest.jwt.model.SampleEntity;
+import com.example.customerservice.dao.CustomerRepository;
+import com.example.customerservice.model.CustomerEntity;
+import com.example.customerservice.model.CustomerResponseDTO;
+import com.example.customerservice.model.CustomerUserDetail;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,14 +29,14 @@ import java.util.List;
 @Slf4j
 public class TokenCheckFilter extends BasicAuthenticationFilter {
 
-    private final SampleRepository repository;
+    private final CustomerRepository repository;
 
-    public TokenCheckFilter(AuthenticationManager authenticationManager, SampleRepository repository) {
+    public TokenCheckFilter(AuthenticationManager authenticationManager, CustomerRepository repository) {
         super(authenticationManager);
         this.repository = repository;
     }
 
-    public TokenCheckFilter(AuthenticationManager authenticationManager, AuthenticationEntryPoint authenticationEntryPoint, SampleRepository repository) {
+    public TokenCheckFilter(AuthenticationManager authenticationManager, AuthenticationEntryPoint authenticationEntryPoint, CustomerRepository repository) {
         super(authenticationManager, authenticationEntryPoint);
         this.repository = repository;
     }
@@ -61,10 +63,12 @@ public class TokenCheckFilter extends BasicAuthenticationFilter {
         // 수정해야 하는 부분 => 빠르게 테스트하기 위해서 작업
         // 인증된 사용자면 사용자 정보를 가져오거나 필요한 작업을 수행
         if (username != null) {
-            SampleEntity entity = repository.findByUsername(username);
+            CustomerEntity entity = repository.findByUsername(username);
+            CustomerResponseDTO customerResponseDTO = CustomerResponseDTO.entityToDto(entity);
             List<GrantedAuthority> roles = new ArrayList<>();
             roles.add(new SimpleGrantedAuthority("ROLE_ADMIN")); // user 권한설정
-            CustomerUserDetail userDetail = new CustomerUserDetail(entity, roles);
+
+            CustomerUserDetail userDetail = new CustomerUserDetail(roles, customerResponseDTO);
             // 시큐리티 내부에서 사용한 인증토큰 (UsernamePasswordAuthenticationToken) 에 유저정보를 저장
             Authentication securityToken = new UsernamePasswordAuthenticationToken(userDetail, null, roles);
             // 시큐리티 내부에서 사용되는 public 저장소

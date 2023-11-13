@@ -26,7 +26,7 @@ public class CustomerEntity {
     private Long customerGenerateId;
     @Column(name = "userId")
     private String username;
-    @Column(name="pass", nullable = false, length = 100, unique = true)
+    @Column(nullable = false, length = 100, unique = true)
     private String password;
     @Column(nullable = false, length = 50)
     private String name;

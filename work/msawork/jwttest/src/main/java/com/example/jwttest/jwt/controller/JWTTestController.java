@@ -14,7 +14,17 @@ public class JWTTestController {
     }
 
     @PostMapping("/test")
-    public String tokenTest() {
+    public String filterTest() {
         return "작업 완료에용";
+    }
+
+    @GetMapping("/my/api/test")
+    public String userTest() {
+        return "유저테스트";
+    }
+
+    @GetMapping("/admin/api/test")
+    public String adminTest() {
+        return "어드민테스트";
     }
 }
