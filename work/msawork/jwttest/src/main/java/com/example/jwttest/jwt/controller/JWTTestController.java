@@ -1,5 +1,9 @@
 package com.example.jwttest.jwt.controller;
 
+import com.example.jwttest.jwt.model.CustomerUserDetail;
+import com.example.jwttest.jwt.model.SampleDTO2;
+import org.modelmapper.ModelMapper;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +22,14 @@ public class JWTTestController {
         return "작업 완료에용";
     }
 
-    @GetMapping("/my/api/test")
-    public String userTest() {
-        return "유저테스트";
+    @GetMapping("/my/api/mypage")
+    public SampleDTO2 userTest(Authentication mydata) {
+        //내 정보 조회 - SecurityuContextHolder 안에 SecurityContext 에 Authentication
+        //이 저장되어 있으므로 스프링이 자동으로 객체를 컨트롤러에 넘겨준다
+        CustomerUserDetail userDetail = (CustomerUserDetail) mydata.getPrincipal();
+        ModelMapper mapper = new ModelMapper();
+        SampleDTO2 dto = mapper.map(userDetail.getEntity(), SampleDTO2.class);
+        return dto;
     }
 
     @GetMapping("/admin/api/test")

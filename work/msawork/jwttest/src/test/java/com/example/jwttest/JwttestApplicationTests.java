@@ -20,9 +20,9 @@ class JwttestApplicationTests {
     @Rollback(value = false)
     void contextLoads() {
         SampleEntity member = new SampleEntity();
-        member.setPass("test");
-        member.setName("test");
-        member.setUsername("test");
+        member.setPass("jun");
+        member.setName("jun");
+        member.setUsername("전병준");
         sampleDAO.write(member);
 
     }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="post" action="/test">
+    <h1>주문일반</h1>
+    주소 : <input type="text" name="addr">
+    <h1>주문상세</h1>
+    <input type="text" name="orderList[0].title">
+    <input type="text" name="orderList[0].price">
+    <input type="text" name="orderList[0].count">
+
+    <input type="text" name="orderList[1].title">
+    <input type="text" name="orderList[1].price">
+    <input type="text" name="orderList[1].count">
+
+    <input type="text" name="orderList[2].title">
+    <input type="text" name="orderList[2].price">
+    <input type="text" name="orderList[2].count">
+
+    <input type="submit" value="주문하기">
+  </form>
+
+</body>
+</html>

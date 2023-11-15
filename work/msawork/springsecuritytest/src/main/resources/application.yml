@@ -1,14 +1,14 @@
 server:
-  port: 8088
+  port: 8087
 
 spring:
   application:
     name: securitytest
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
-    username: msatest
-    password: msatest
+    url: jdbc:oracle:thin:@0.tcp.jp.ngrok.io:17656:xe
+    username: bj
+    password: bj
   jpa:
     show-sql: true
     hibernate:
