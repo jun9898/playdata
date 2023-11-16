@@ -37,11 +37,11 @@ public class CustomerViewController {
         return "customer/loginForm";
     }
 
-    @GetMapping("/mypage")
-    @PreAuthorize("hasAnyAuthority('ROLE_USER')")
-    public String userpage() {
-        return "customer/UserPage";
-    }
+//    @GetMapping("/mypage")
+//    @PreAuthorize("hasAnyAuthority('ROLE_USER')")
+//    public String userpage() {
+//        return "customer/UserPage";
+//    }
 
     @GetMapping("/accesserror")
     public String accesserrer() {

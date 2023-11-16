@@ -24,6 +24,7 @@ public class OrderProductEntity {
     private Long productNo;
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name = "order_id")
     private OrderEntity myorder;
     private int orderPrice; // 구매 가격

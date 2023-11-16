@@ -7,18 +7,18 @@ import com.example.orderservice.domain.OrderProductEntity;
 import com.example.orderservice.domain.OrderRequestDTO;
 import com.example.orderservice.domain.OrderResponseDTO;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.ModelMap;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
@@ -26,7 +26,6 @@ public class OrderServiceImpl implements OrderService{
     private final OrderProductDAO orderProductDAO; // 주문한 상품에 대한 정보
 
     @Override
-    @Transactional
     public void save(OrderRequestDTO orderRequest) {
         ModelMapper mapper = new ModelMapper();
         List<OrderProductEntity> detaillist = orderRequest.getOrderDetailDTOList().stream()
@@ -36,24 +35,12 @@ public class OrderServiceImpl implements OrderService{
                 .collect(Collectors.toList());
         log.info("orderdetaillist ======================================> {}", detaillist);
         OrderEntity orderEntity = OrderEntity.makeOrderEntity(orderRequest.getAddr(),orderRequest.getCustomerId(),detaillist);
+        // 양방향 관계인 경우 부모 테이블과 자실 테이블의 데이터를 모두 영속화 시켜주는 작업을 처리하면서
+        // 부모 테이블에 레코드를 저장할 때 자식 테이블의 레코드를 한번에 같이 진행할 수 있다
+        // 테이블에 cascade = CascadeType.ALL 이라는 옵션을 정의해 주어야 한다
         dao.save(orderEntity);
+        orderProductDAO.save(orderEntity.getOrderProductList());
     }
-
-//    @Override
-//    @Transactional
-//    public void progress(OrderRequest orderRequest) {
-//        ModelMapper mapper = new ModelMapper();
-//        OrderEntity entity = mapper.map(orderRequest,OrderEntity.class);
-//
-//        List<OrderProductEntity> orderProductEntityList = orderRequest.getOrderProductRequestList().stream()
-//                .map((item) -> {
-//                    item.setMyorder(entity);
-//                    return  mapper.map(item,OrderProductEntity.class);
-//                }).collect(Collectors.toList());
-//        OrderEntity entity1 = OrderEntity.makeOrderEntity(entity.getAddr(),entity.getCustomerId(),orderProductEntityList);
-//        dao.progressOrder(entity1);
-//        orderProductDAO.progressOrderProduct(orderProductEntityList);
-//    }
 
     @Override
     public OrderResponseDTO findById(Long orderId) {
@@ -62,6 +49,13 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<OrderResponseDTO> findAllByCustomerId(Long customerId) {
-        return null;
+        // dao의 메소드를 호출하고 데이터를 변환
+        List<OrderResponseDTO> collect = dao.findAllByCustomerId(customerId).stream()
+                .map(OrderResponseDTO::entityToDTO)
+                .collect(Collectors.toList());
+        for (OrderResponseDTO orderResponseDTO : collect) {
+            log.info(orderResponseDTO.toString());
+        }
+        return collect;
     }
 }

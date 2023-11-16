@@ -46,7 +46,6 @@ public class MyCustomerConfig {
     @Bean
     RoleHierarchy roleHierarchy() {
         RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-        // admin의 권한은 유저를 상회한다.
         roleHierarchy.setHierarchy("ROLE_ADMIN > ROLE_USER");
         return roleHierarchy;
     }
@@ -75,12 +74,12 @@ public class MyCustomerConfig {
                 .csrf().disable()
                 .formLogin().disable()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-                .addFilter(new TokenCheckFilter(authenticationManager(), repository))
+                .addFilter(new TokenCheckFilter(authenticationManager(), customerSecurityDetailService))
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "**").permitAll()
-                .antMatchers("/my/api/**")
+                .antMatchers("/customer/my/api/**")
                 .access("hasRole('USER') or hasRole('ADMIN')")
-                .antMatchers("/admin/api/**")
+                .antMatchers("/customer/admin/api/**")
                 .access("hasRole('ADMIN')")
                 .anyRequest()
                 .permitAll()

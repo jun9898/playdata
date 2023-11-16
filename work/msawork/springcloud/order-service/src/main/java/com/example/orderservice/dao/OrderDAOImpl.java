@@ -25,6 +25,6 @@ public class OrderDAOImpl implements OrderDAO {
 
     @Override
     public List<OrderEntity> findAllByCustomerId(Long customerId) {
-        return null;
+        return repository.findAllByCustomerId(customerId);
     }
 }

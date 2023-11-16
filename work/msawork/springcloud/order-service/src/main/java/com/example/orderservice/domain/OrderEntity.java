@@ -28,7 +28,7 @@ public class OrderEntity {
 //    private Customer customer;
     private Long customerId;
     @OneToMany(mappedBy = "myorder", cascade = CascadeType.ALL)
-    @ToString.Exclude
+//    @OneToMany(mappedBy = "myorder")
     private List<OrderProductEntity> orderProductList = new ArrayList<>();
 
     public OrderEntity(String addr, Long customerId) {
