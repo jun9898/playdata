@@ -3,11 +3,10 @@ package com.example.orderservice.test;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.sql.Select;
 
 import javax.persistence.*;
 
-// 사용자 정의 시퀀스 적용
+//사용자정의 시퀀스적용
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +18,8 @@ import javax.persistence.*;
 
 )
 public class TestEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "my_generator")
     private Long id;
     private String info;
 

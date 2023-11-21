@@ -5,7 +5,6 @@ import com.example.orderservice.domain.OrderProductEntity;
 import java.util.List;
 
 public interface OrderProductDAO {
-
-    // 주문상품을 등록
-    void save(List<OrderProductEntity> orderProductList);
+    //주문상품등록
+    void save(List<OrderProductEntity> orderproductlist);
 }

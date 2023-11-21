@@ -7,26 +7,22 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Rollback(value = false)
 @Transactional
 class TestEntityTest {
-
     @Autowired
     EntityManager em;
-
     @Test
-    void test() {
+    void test(){
         TestEntity entity1 = new TestEntity("test1");
         TestEntity entity2 = new TestEntity("test2");
         TestEntity entity3 = new TestEntity("test3");
         em.persist(entity1);
         em.persist(entity2);
         em.persist(entity3);
-    }
 
+    }
 }

@@ -1,6 +1,9 @@
 package com.example.orderservice.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -9,44 +12,58 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Slf4j
-@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "order_table")
+@AllArgsConstructor
+@Entity
+@Table(name = "myorder")
+@Slf4j
+//주문일반
 public class OrderEntity {
-
     @Id
     @GeneratedValue
     private Long orderId;
     @CreationTimestamp
-    private Date orderDate;
-    private String addr;
+    private Date orderDate;//주문한시간
+    private String addr; //배송주소
+    //고객이 여러 건의 주문을 할 수 있으므로 - 다대일관계
 //    @ManyToOne
-//    @JoinColumn(name = "id")
-//    private Customer customer;
+//    @JoinColumn(name = "customer_id")
+//    private CustomerEntity  customer;
     private Long customerId;
-    @OneToMany(mappedBy = "myorder", cascade = CascadeType.ALL)
-//    @OneToMany(mappedBy = "myorder")
-    private List<OrderProductEntity> orderProductList = new ArrayList<>();
+    //주문일반1에 대해서 구매한 정보(orderDetail)
+    @OneToMany(mappedBy =  "myorder",cascade = CascadeType.ALL)
+     //@OneToMany(mappedBy = "myorder")
+     private List<OrderProductEntity> orderproductlist = new ArrayList<>();
 
     public OrderEntity(String addr, Long customerId) {
         this.addr = addr;
         this.customerId = customerId;
     }
-
-    public void changeOrderProduct(OrderProductEntity orderProduct) {
-        orderProductList.add(orderProduct);
-        orderProduct.setMyorder(this);
+    //양방향매핑으로 양쪽 엔티티에서 각각에 대한 정보를 가지고 있어야 하므로 반영
+    public void changeOrderDetailInfo(OrderProductEntity orderDetail){
+        orderproductlist.add(orderDetail);
+        orderDetail.setMyorder(this);
     }
-
-    public static OrderEntity makeOrderEntity(String addr, Long customerId, List<OrderProductEntity> orderProductList) {
-        OrderEntity entity = new OrderEntity(addr, customerId);
-        for (OrderProductEntity orderProductEntity : orderProductList) {
-            entity.changeOrderProduct(orderProductEntity);
+    public static OrderEntity makeOrderEntity(String addr,Long customerId,
+                                              List<OrderProductEntity> list){
+        OrderEntity entity = new OrderEntity(addr,customerId);
+        for(OrderProductEntity orderdetail:list){
+            entity.changeOrderDetailInfo(orderdetail);
         }
-        log.info("값 ========================================================== {}", entity.getOrderProductList());
-        return entity;
+        log.info("*****************************************") ;
+        log.info("값:{}",entity.getOrderproductlist());
+        return entity;//만들어진 OrderEntity를 리턴
     }
 }
+
+
+
+
+
+
+
+
+
+
+

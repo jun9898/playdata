@@ -14,19 +14,18 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class OrderController {
-
     private final OrderService service;
     @PostMapping("/create")
-    public void create(@RequestBody OrderRequestDTO order) {
-        log.info("주문내역 ===================> {}" ,order);
-        service.save(order);
+    public void create(@RequestBody OrderRequestDTO order){
+        log.info("주문내역==>{}",order);
+        service.save(order);//주문하기
     }
-
     @GetMapping("/getOrders/{customerId}")
-    public List<OrderResponseDTO> create(@PathVariable Long customerId) {
-        return service.findAllByCustomerId(customerId);
+    public List<OrderResponseDTO> getOrders(@PathVariable Long customerId){
+        List<OrderResponseDTO> responselist =
+                service.findAllByCustomerId(customerId);
+        log.info("컨트롤러:주문내역==>{}",responselist);
+        return  responselist;
     }
-
-
-
 }
+

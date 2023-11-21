@@ -1,42 +1,19 @@
 package com.example.orderservice.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-
-@AllArgsConstructor
-@NoArgsConstructor
+//DB에서 조회한 주문정보를 담을 DTO => 클라이언트로 전송(JSON으로 변환되어)
 @Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderResponseDTO {
     private Long orderId;
-    private Date orderDate;
-    private String addr;
+    private String addr; //배송주소
     private Long customerId;
-    private List<OrderDetailResqonseDTO> orderProductList;
-
-    public OrderResponseDTO(Long orderId, Date orderDate, String addr, Long customerId) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.addr = addr;
-        this.customerId = customerId;
-    }
-
-    public static OrderResponseDTO entityToDTO(OrderEntity entity) {
-        OrderResponseDTO dto = new OrderResponseDTO(entity.getOrderId(),
-                entity.getOrderDate(),
-                entity.getAddr(),
-                entity.getCustomerId());
-        List<OrderProductEntity> orderProductList = entity.getOrderProductList();
-        List<OrderDetailResqonseDTO> dtoList = orderProductList.stream()
-                .map(OrderDetailResqonseDTO::entityToDTO)
-                .collect(Collectors.toList());
-        dto.setOrderProductList(dtoList);
-        return dto;
-    }
+    private Date orderDate;
+    private List<OrderDetailResponseDTO> orderproductlist;
 }

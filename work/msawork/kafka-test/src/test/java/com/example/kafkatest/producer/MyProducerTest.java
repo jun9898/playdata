@@ -14,7 +14,8 @@ class MyProducerTest {
 
     @Test
     void test() {
-        producer.send();
+//        producer.async("springexam","async test");
+        producer.async("springexam","im baby suyoung");
     }
 
 }
