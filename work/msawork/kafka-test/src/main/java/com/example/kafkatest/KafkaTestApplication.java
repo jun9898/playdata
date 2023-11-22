@@ -22,13 +22,13 @@ public class KafkaTestApplication {
         return args -> {
 //            kafkaTemplate.send("springexam", "spring for kafka");
             container.start();
-            Thread.sleep(1000);
-            log.info("=================pause==================");
-            container.pause();
-
-            log.info("=================resume==================");
-            Thread.sleep(1000);
-            container.resume();
+//            Thread.sleep(1000);
+//            log.info("=================pause==================");
+//            container.pause();
+//
+//            log.info("=================resume==================");
+//            Thread.sleep(1000);
+//            container.resume();
         };
     }
 }

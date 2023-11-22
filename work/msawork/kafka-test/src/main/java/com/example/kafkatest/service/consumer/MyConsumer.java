@@ -1,4 +1,4 @@
-package com.example.kafkatest.consumer;
+package com.example.kafkatest.service.consumer;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;

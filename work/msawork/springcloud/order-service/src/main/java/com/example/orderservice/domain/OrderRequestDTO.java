@@ -10,7 +10,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderRequestDTO {
+
     private String addr; //배송주소
     private Long customerId;
     private List<OrderDetailDTO> orderDetailDTOList;
+
 }

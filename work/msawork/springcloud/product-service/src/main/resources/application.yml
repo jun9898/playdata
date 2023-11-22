@@ -1,10 +1,9 @@
-
 server:
-  port: 9500
+  port: 9400
 
 spring:
   application:
-    name: order-service
+    name: product-service
 
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver

@@ -4,126 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2baa1336-ebd1-400d-ab44-f2d640b7f76d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../KafkaExam/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/consumer/listener/ConsumerDeaultMessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkapub/KafkapubApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkapub/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkapub/controller/KafkaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/kafkapub/service/ExamProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pub.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/kafkapub/KafkapubApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/src/main/java/com/example/kafkasub/KafkasubApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/src/main/resources/templates/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kafkasub/src/test/java/com/example/kafkasub/KafkasubApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/KafkaTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/config/KafkaProducerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/KafkaTestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/KafkaTestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/MyConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/consumer/MyConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/producer/MyProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/producer/MyProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/test/java/com/example/kafkatest/producer/MyProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/test/java/com/example/kafkatest/producer/MyProducerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/CustomerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/CustomerServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/config/FilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/config/FilterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/config/MyCustomerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/controller/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/controller/CustomerViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/controller/IndexController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/dao/CustomerDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/dao/CustomerDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/dao/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/CustomerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/CustomerOrderResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/CustomerRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/CustomerResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/CustomerUserDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/OrderDetailResqonseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/model/OrderResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/CustomerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/CustomerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/CustomerSecurityDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/MyAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/filter/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/filter/TokenCheckFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/handler/CustomFailureHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/java/com/example/customerservice/service/security/handler/CustomSuccessHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/accessDenide.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/customer/loginForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/customer/loginForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/customer/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/customer/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/customer/userPage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/layout/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/main/resources/templates/layout/top.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/customer-service/src/test/java/com/example/customerservice/CustomerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/customer-service/src/test/java/com/example/customerservice/CustomerServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/OrderServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/OrderServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderProductDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/dao/OrderProductDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderDetailResqonseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/domain/OrderResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/repository/OrderDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/repository/OrderDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/repository/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/service/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/test/TestEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/java/com/example/orderservice/test/TestEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/test/java/com/example/orderservice/OrderServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/test/java/com/example/orderservice/service/OrderServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/order-service/src/test/java/com/example/orderservice/test/TestEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/order-service/src/test/java/com/example/orderservice/test/TestEntityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/product-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/ProductServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/ProductServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/controller/CategoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/controller/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dao/CategoryDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dao/CategoryDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dao/ProductDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dao/ProductDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dto/CategoryRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dto/ItemDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dto/ProductRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dto/ProductResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/dto/ShopDataDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/entity/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/entity/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/repository/CategoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/repository/ProductRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/CategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/CategoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/CommunicationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/CommunicationServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/ProductService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/java/com/example/productservice/service/ProductServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloud/product-service/src/test/java/com/example/productservice/SearchTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="2baa1336-ebd1-400d-ab44-f2d640b7f76d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,9 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2YTDvu3JBQSPGQaP9lHPWFYfj0W" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -159,25 +40,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="KafkapubApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="kafkapub.main" />
@@ -196,6 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700540912141</updated>
       <workItem from="1700540913370" duration="9868000" />
+      <workItem from="1700560535494" duration="37000" />
     </task>
     <servers />
   </component>

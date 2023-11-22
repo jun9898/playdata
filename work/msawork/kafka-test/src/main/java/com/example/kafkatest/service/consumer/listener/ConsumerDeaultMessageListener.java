@@ -1,4 +1,4 @@
-package com.example.kafkatest.consumer.listener;
+package com.example.kafkatest.service.consumer.listener;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.listener.MessageListener;

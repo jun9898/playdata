@@ -1,4 +1,4 @@
-package com.example.kafkatest.producer;
+package com.example.kafkatest.service.producer;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
