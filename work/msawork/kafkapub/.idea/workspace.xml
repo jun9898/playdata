@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2baa1336-ebd1-400d-ab44-f2d640b7f76d" name="Changes" comment="" />
+    <list default="true" id="2baa1336-ebd1-400d-ab44-f2d640b7f76d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/config/KafkaProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaConsumerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaProducerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaTopicBService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/config/KafkaProducerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/controller/KafkaProducerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/service/KafkaProducerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/controller/KafkaJsonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/controller/KafkaJsonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +90,7 @@
       <updated>1700540912141</updated>
       <workItem from="1700540913370" duration="9868000" />
       <workItem from="1700560535494" duration="37000" />
+      <workItem from="1700703509051" duration="1679000" />
     </task>
     <servers />
   </component>
