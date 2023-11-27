@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="id">
+    <input type="button" id="notireq" value="입고알림" onclick="connect()">
+    <input type="button" id="cancel" value="알림취소">
+    <script>
+        function connect() {
+            alert("connect")
+            id = document.querySelector("#id")
+            const sse = new EventSource("http://192.168.0.8:8900/sse/connect/" + id.value)
+
+            sse.onopen=function () {
+                console.log("최초 접속하기")
+            }
+
+            sse.onerror = function (errer) {
+                console.log("error 발생 => "+ errer);
+                sse.close();
+            }
+
+            sse.addEventListener("prd", (e) => {
+                const receivedData = e;
+                console.log("접속 완료 ", receivedData);
+                console.log("접속 완료 ", receivedData.data);
+                if(receivedData.data == "create") {
+                    myid = receivedData.lastEventId
+                    alert(myid+"고객님께서 찾으시는 상품이 입고되었습니다.");
+                    window.open("/popup.html","mywin","top=100, width=500, height=300");
+                }
+            })
+
+/*
+            sse.addEventListener("connect", (e) => {
+                const receivedData = e;
+                console.log("이벤트 받음 => ", receivedData);
+                console.log("이벤트 받음 => ", receivedData.data);
+                viewChange(receivedData.data);
+            })
+*/
+
+        }
+    </script>
+</body>
+</html>

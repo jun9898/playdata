@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2baa1336-ebd1-400d-ab44-f2d640b7f76d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/config/KafkaConsumerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaConsumerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaProducerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsink/src/main/java/com/example/streamsink/service/KafkaTopicBService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/config/KafkaProducerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/controller/KafkaProducerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/java/com/example/streamsorce/service/KafkaProducerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../streamsorce/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/controller/KafkaJsonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-test/src/main/java/com/example/kafkatest/controller/KafkaJsonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/config/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/ProductNotiConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/SseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/SseEmitterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/SseProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/SseProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/sse/ViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/resources/static/popup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/resources/templates/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kafka-stream/src/main/resources/templates/ssetest1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/KStreamAndKTableJoinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-stream/src/main/java/com/example/kafkastream/KStreamAndKTableJoinTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kafka-stream/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka-stream/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +93,7 @@
       <workItem from="1700540913370" duration="9868000" />
       <workItem from="1700560535494" duration="37000" />
       <workItem from="1700703509051" duration="1679000" />
+      <workItem from="1701064498330" duration="1232000" />
     </task>
     <servers />
   </component>

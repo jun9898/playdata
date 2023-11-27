@@ -30,6 +30,5 @@ public class KStreamAndKTableJoinTest {
 
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.start();
-
     }
 }
