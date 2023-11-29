@@ -9,7 +9,7 @@
     <script type="text/javascript">
         // sse 구독신청을 하기 위해 제공되는 path
         // 구독신청
-        const sse = new EventSource("http://192.168.0.8:8900/sse/connect")
+        const sse = new EventSource("http://192.168.0.6:8900/sse/connect")
         // 서버가 보내는 메시지 구동
         sse.addEventListener("connect", (e) => {
             const receivedData = e;

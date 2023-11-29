@@ -26,7 +26,7 @@ public class SimpleStreamTest {
         //source-topic의 데이터를 읽어와 KStream으로 변경
         KStream<String,String> sourceStream = builder.stream("source-topic");
         //데이터 변환
-        KStream<String,String> filterStream = sourceStream.filter((key, value) -> Integer.parseInt(value) % 2 != 0);
+        KStream<String,String> filterStream = sourceStream.filter((key, value) -> value.length()  > 0);
         //sink-topic으로 처리가 완료된 데이터 전송
         filterStream.to("sink-topic");
 
@@ -37,9 +37,9 @@ public class SimpleStreamTest {
 
     public static void streams2(){
         StreamsBuilder builder = new StreamsBuilder();
-        KStream<String,String> sourceStream = builder.stream("topica");
+        KStream<String,String> sourceStream = builder.stream("num-topic");
 
-        KStream<String,String> filterStream = sourceStream.filter((key, value) -> value.length()<=3);
+        KStream<String,String> filterStream = sourceStream.filter((key, value) -> Integer.parseInt(value) % 2 != 0);
 
         filterStream.to("sink-topic");
 
