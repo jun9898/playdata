@@ -30,7 +30,7 @@ public class RedisConfig {
 
     // spring에서 redis를 접속하기 위한 클라이언트 - jedis(예전)
     // Lettuce를 이용해서 작업하는 것이 일반적
-    @Bean
+//    @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         return new LettuceConnectionFactory(properties.getHost(), properties.getPort());
 

@@ -23,11 +23,14 @@ public class SortedSetServiceImpl implements SortedSetService{
 
     @Override
     public void createMember(Product newProduct) {
-
+        ZSetOperations<String, String> zSetOperations = template.opsForZSet();
+        zSetOperations.add(newProduct.getCategoryId(), newProduct.getProductId(), newProduct.getPrice());
     }
 
     @Override
     public int getRank(Product newProduct) {
-        return 0;
+        ZSetOperations<String, String> zSetOperations = template.opsForZSet();
+        int rank = zSetOperations.rank(newProduct.getCategoryId(), newProduct.getProductId()).intValue();
+        return rank;
     }
 }
