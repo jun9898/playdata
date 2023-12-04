@@ -7,30 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class SubjectHashServiceTest {
-
     @Autowired
-    private SubjectHashService service;
-
+    private SubjectRedisRepository repository;
     @Test
-    void save() {
-        Subject subject = new Subject(
-                "subject001",
-                "java",
-                25000,
-                "info"
-        );
-        Subject resultSubject = service.save(subject);
-        System.out.println("resultSubject.toString() = " + resultSubject.toString());
+    void save(){
+        Subject subject =
+                new Subject("subject001","java","25000","info");
+            Subject resultsubject =  repository.save(subject);
+
+        System.out.println(subject);
+        System.out.println(resultsubject);
+        System.out.println(resultsubject.getId().equals(subject.getId()));
     }
-
-    @Test
-    void findById() {
-        Subject subject001 = service.findById("subject001");
-        System.out.println("subject001 = " + subject001.toString());
-
-    }
-
 }
+
+
+
+
+
+
+
+
+
+

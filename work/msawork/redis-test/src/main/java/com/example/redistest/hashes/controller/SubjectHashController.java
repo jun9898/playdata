@@ -11,19 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class SubjectHashController {
-
-    // hash에 데이터 추가하기 컨트롤러 메소드
+    //hash에 데이터 추가하기 컨트롤러 메소드
     private final SubjectHashService service;
-
     @PostMapping("/hashtest")
-    public Subject save(@RequestBody Subject subject) {
-        System.out.println("subject.toString() = " + subject.toString());
+    public Subject save(@RequestBody Subject subject){
+        System.out.println(subject);
         return service.save(subject);
     }
-
     @GetMapping("/hashtest")
-    public Subject findById(String id) {
+    public Subject findById(String id){
         return service.findById(id);
     }
-
 }

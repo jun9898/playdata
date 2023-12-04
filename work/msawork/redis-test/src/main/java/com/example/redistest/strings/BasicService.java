@@ -11,30 +11,29 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 @RequiredArgsConstructor
 public class BasicService {
-
+    //만료시간 설정
     private final int LIMIT_TIME = 3*60;
     private final RedisTemplate template;
-
-    public void createRedisValue(BasicDTO data) {
-        ValueOperations<String, String> stringValueOperations = template.opsForValue();
-        stringValueOperations.set(data.getKey(), data.getValue());
-//        만료 시간 설정
-//        stringValueOperations.set(data.getKey(), data.getValue(), LIMIT_TIME);
+    public void createRedisValue(BasicDTO data){
+        ValueOperations<String,String> stringValueOperations =
+                template.opsForValue();
+        stringValueOperations.set(data.getKey(),data.getValue());
+        //만료시간 설정
+        //stringValueOperations.set(data.getKey(),data.getValue(),LIMIT_TIME);
     }
-
-    public String getRedisValue(String key) {
-        ValueOperations<String, String> stringValueOperations = template.opsForValue();
+    public String getRedisValue(String key){
+        ValueOperations<String,String> stringValueOperations =
+                template.opsForValue();
         String value = stringValueOperations.get(key);
+
         return value;
     }
 
-    public String updateRedisValue(BasicDTO data) {
-        ValueOperations<String, String> stringValueOperations = template.opsForValue();
+    public void updateRedisValue(BasicDTO data) {
+        ValueOperations<String,String> stringValueOperations =  template.opsForValue();
         stringValueOperations.getAndSet(data.getKey(), data.getValue());
-        return data.getValue();
     }
-
     public void deleteRedisValue(String key) {
-        template.delete(key);
+       template.delete(key);
     }
 }

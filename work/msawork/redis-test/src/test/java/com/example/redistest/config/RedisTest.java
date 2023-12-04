@@ -10,48 +10,53 @@ import org.springframework.data.redis.core.ValueOperations;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class RedisTest {
-
     @Autowired
-    private RedisTemplate<String, String> redisTemplate;
-    // 스트링 데이터타입 테스트
-
+    private RedisTemplate<String,String> redisTemplate;
+    //스트링데이터타입 테스트
     @Test
-    void testString() {
-        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+    void testString(){
+        ValueOperations<String,String> valueOperations =
+                redisTemplate.opsForValue();
         String key = "springtest";
-        valueOperations.set(key, "hello");
-        String value = valueOperations.get(key);
-        System.out.println("value = " + value);
+        valueOperations.set(key,"hello");
+        String value=valueOperations.get(key);
+        System.out.println(value+"===============================");
     }
-
     @Test
-    void testSet() {
-        SetOperations<String, String> setOperations = redisTemplate.opsForSet();
-        String key = "dress";
-
+    void testSet(){
+        SetOperations<String, String> setOperations
+                                = redisTemplate.opsForSet();
+        String key= "dress";
         Set<String> members = setOperations.members(key);
         Long size = setOperations.size(key);
-        System.out.println("members = " + members);
-        System.out.println("size = " + size);
-        System.out.println("members.contains(\"prd001\") = " + members.contains("prd001"));
-        System.out.println("members.contains(\"prd002\") = " + members.contains("prd002"));
+        System.out.println(members);
+        System.out.println(size);
+        System.out.println(members.contains("prd002"));
+        System.out.println(members.contains("prd0021"));
     }
-
     @Test
-    void fruitTest() {
-        SetOperations<String, String> setOperations = redisTemplate.opsForSet();
+    void examSet(){
+//        - fruit set만들고 데이터 5개 넣기
+        SetOperations<String,String> newset = redisTemplate.opsForSet();
         String key = "fruit";
-        setOperations.add("fruit", "mango", "strawberry");
-        Set<String> members = setOperations.members(key);
-        Long size = setOperations.size(key);
-        for (String member : members) {
-            System.out.println("member = " + member);;
-        }
-        System.out.println("members.contains(\"apple\") = " + members.contains("apple"));
-        System.out.println("size = " + size);
-    }
+        newset.add(key,"banana");
+        newset.add(key,"apple");
+        newset.add(key,"mango");
+        newset.add(key,"melon");
+        newset.add(key,"딸기");
 
+
+//        - set에 저장된 전체 데이터 조회하기
+        Set<String> members = newset.members(key);
+        System.out.println(members);
+
+//        - apple이 있는지 조회
+        System.out.println(members.contains("apple"));
+//        - fruit의 전체 갯수
+        Long size = newset.size(key);
+        System.out.println(size);
+//
+    }
 }

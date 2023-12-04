@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-    private String categoryId;
-    private String productId;
-    private int price;
+    private String categoryId;//key
+    private String productId;//member(구분키)
+    private int price;//score(value)
 }
