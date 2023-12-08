@@ -1,13 +1,12 @@
-
 server:
-  port: 8090
+  port: 8089
 
 spring:
   application:
-    name: redis-test
+    name: redis-jwt
   data:
     redis:
-      host: 192.168.0.6
+      host: 192.168.0.9
       port: 6379
       password: test
   sql:
@@ -16,14 +15,14 @@ spring:
       mode: always
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:xe
+    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
     username: msa
     password: msa
 
   jpa:
     show-sql: true
     hibernate:
-#      ddl-auto: create
+      #ddl-auto: create
       ddl-auto: none
     defer-datasource-initialization: true
     properties:
@@ -44,5 +43,3 @@ jwt:
   header: Authorization
   secret: Q4NSl604sgyHJj1qwEkR3ycUeR4uUAt7WJraD7EN3O9DVM4yyYuHxMEbSF4XXyYJkal13eqgB0F7Bq4H
   token-validity-in-second: 86400
-
-

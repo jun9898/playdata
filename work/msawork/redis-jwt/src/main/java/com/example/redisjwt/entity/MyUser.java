@@ -12,9 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "myuser")
+@Table(name="myuser")
 public class MyUser {
-
     @JsonIgnore
     @Id
     @GeneratedValue
@@ -25,17 +24,16 @@ public class MyUser {
     private String nickname;
     @JsonIgnore
     private boolean checkVal;
-    // jpa의 기능을 테스트하기 위해 사용
+    //jpa의 기능을 테스트하기 위해 사용
+    //1:다 다대1로 작업
     @ManyToMany
     @JoinTable(
-            name = "user_authority",
-            joinColumns =
-                    {@JoinColumn(name = "userId",
-                        referencedColumnName = "userId")},
+            name="user_authority",
+            joinColumns = {@JoinColumn(name="userId",
+                    referencedColumnName = "userId" )},
             inverseJoinColumns =
-                    {@JoinColumn(name = "authorityId",
-                        referencedColumnName = "authorityId")}
+                    {@JoinColumn(name="authorityId",
+                            referencedColumnName ="authorityId" )}
     )
-
-    private Set<Authority> authorityList;
+    private Set<Authority> authoritylist;
 }
