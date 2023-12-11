@@ -1,17 +1,18 @@
 server:
-  port: 8900
+  port: 8089
 
 spring:
   application:
-    name: redis-jwt
+    name: hexagonal-test
   data:
     redis:
-      host: 192.168.0.9
+      host: 127.0.0.1
       port: 6379
       password: test
   sql:
     init:
       encoding: UTF-8
+      #      run sql query in resource/data.sql
       mode: always
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -24,7 +25,7 @@ spring:
     hibernate:
 #      ddl-auto: create
       ddl-auto: none
-    defer-datasource-initialization: true
+
     properties:
       hibernate:
         format_sql: true
@@ -39,7 +40,17 @@ logging:
           descriptor:
             sql: trace
 
-jwt:
-  header: Authorization
-  secret: Q4NSl604sgyHJj1qwEkR3ycUeR4uUAt7WJraD7EN3O9DVM4yyYuHxMEbSF4XXyYJkal13eqgB0F7Bq4H
-  token-validity-in-second: 86400
+producers:
+  bootstrap-server: 192.168.0.9:9092
+  topic1:
+    name: msatest
+  topic2:
+    name: noti
+consumer:
+  topic1:
+    name: msatest
+
+#jwt:
+#  header: Authorization
+#  secret: Q4NSl604sgyHJj1qwEkR3ycUeR4uUAt7WJraD7EN3O9DVM4yyYuHxMEbSF4XXyYJkal13eqgB0F7Bq4H
+#  token-validity-in-second: 86400

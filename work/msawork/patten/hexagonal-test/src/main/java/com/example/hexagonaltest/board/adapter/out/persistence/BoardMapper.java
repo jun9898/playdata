@@ -13,9 +13,9 @@ public class BoardMapper {
         return entity;
     }
 
-    public BoardResponseDTO entityToDomain(BoardEntity entity){
+    public BoardResponseDTO entityToDomain(BoardEntity board){
         ModelMapper mapper = new ModelMapper();
-        BoardResponseDTO board = mapper.map(entity, BoardResponseDTO.class);
-        return board;
+        BoardResponseDTO dto = mapper.map(board, BoardResponseDTO.class);
+        return dto;
     }
 }

@@ -1,5 +1,7 @@
 package com.example.hexagonaltest.board.adapter.out.persistence;
 
+// 아웃바운드어댑터 (daoImpl 의 역할)
+// 어댑터와 디비가 어떻게 연동되는지 정의
 
 import com.example.hexagonaltest.board.adapter.in.web.dto.BoardInputDTO;
 import com.example.hexagonaltest.board.adapter.in.web.dto.BoardResponseDTO;
@@ -9,29 +11,34 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-//아웃바운드 어댑터(daoImpl의 역할)
-//어댑터와 디비가 어떻게 연동되는지
 @Component
 @RequiredArgsConstructor
-public class JPABoardOutputAdapter implements BoardCreateOutputPort, BoardSelectOutputPort {
-    private final BoardRepository repository;
-    private final BoardMapper mapper;
+public class JpaBoardOutputAdapter implements BoardCreateOutputPort, BoardSelectOutputPort {
+    private final BoardRepository boardRepository;
+    private final BoardMapper boardMapper;
+
     @Override
     public String createBoard(BoardInputDTO board) {
-        repository.save(mapper.domainToEntity(board));
+        boardRepository.save(boardMapper.domainToEntity(board));
         return "ok";
     }
 
     @Override
-    public BoardResponseDTO getBoardData(Long boardNo) {
-        return mapper.entityToDomain(repository.findByBoardNo(boardNo));
+    public BoardResponseDTO selectBoard(Long id) {
+        BoardEntity entity = boardRepository.findById(id).get();
+        return boardMapper.entityToDomain(entity);
     }
+
     @Override
-    public List<BoardResponseDTO> getBoardlist() {
-        return repository.findAll().stream()
-                .map(entity -> mapper.entityToDomain(entity))
-                .collect(Collectors.toList());
+    public List<BoardResponseDTO> selectAllBoard() {
+        List<BoardEntity> all = boardRepository.findAll();
+        List<BoardResponseDTO> boardList = all.stream().map(entity -> {
+            return boardMapper.entityToDomain(entity);
+        }).collect(Collectors.toList());
+        
+        return boardList;
     }
 }
